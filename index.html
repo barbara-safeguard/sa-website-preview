@@ -160,6 +160,18 @@
   .quote .who span{display:block;font-weight:400;color:var(--muted);font-size:13px;}
   .sample-tag{position:absolute;top:14px;right:14px;background:var(--gold);color:var(--navy);font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;}
 
+  /* ---------- Latest News ---------- */
+  #news{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .news-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:32px;}
+  .news-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:28px;display:flex;flex-direction:column;}
+  .news-card .date{font-size:13px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+  .news-card h3{font-size:20px;margin-bottom:10px;}
+  .news-card p{color:var(--muted);font-size:15.5px;margin-bottom:16px;flex:1;}
+  .news-card a.more{color:var(--teal);font-weight:700;font-size:15px;}
+  .news-foot{text-align:center;}
+  .news-foot a{display:inline-block;background:var(--navy);color:#fff;padding:13px 26px;border-radius:7px;font-weight:700;}
+  .news-foot a:hover{background:#123459;text-decoration:none;}
+
   /* ---------- Founder accents ---------- */
   .founder-line{margin:2px 0 30px;font-size:15px;color:#cdd8e6;}
   .founder-line strong{font-family:var(--serif);color:var(--gold);font-weight:bold;letter-spacing:.3px;}
@@ -170,7 +182,7 @@
   /* ---------- Responsive ---------- */
   @media(max-width:860px){
     .about-grid,.about-me,#standards .wrap,.contact-grid{grid-template-columns:1fr;}
-    .cards,.sectors,.std-grid,.story-list,#testimonials .quotes{grid-template-columns:1fr;}
+    .cards,.sectors,.std-grid,.story-list,#testimonials .quotes,.news-grid{grid-template-columns:1fr;}
     .stats{grid-template-columns:repeat(2,1fr);}
     .about-photo{max-width:340px;}
     .hero h1{font-size:34px;}
@@ -198,7 +210,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#stories">Success Stories</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="news.html">News</a></li>
+        <li><a href="#news">News</a></li>
         <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
       </ul>
     </nav>
@@ -353,6 +365,34 @@
       <div class="quote"><span class="sample-tag">Sample</span><span class="mark">&ldquo;</span><p>Add a genuine client quote here once you have permission to publish it.</p><div class="who">Designated Safeguarding Lead<span>Religious congregation, CSSA audit</span></div></div>
       <div class="quote"><span class="sample-tag">Sample</span><span class="mark">&ldquo;</span><p>Add a second client quote here. Two or three short, specific quotes work best.</p><div class="who">Congregational Leader<span>Catholic religious order</span></div></div>
       <div class="quote"><span class="sample-tag">Sample</span><span class="mark">&ldquo;</span><p>Add a third client quote here, focusing on outcomes such as audit confidence or embedded culture.</p><div class="who">Trustee<span>Faith-based charity</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Latest News</span>
+      <h2>News &amp; insights</h2>
+      <p>Regular reflections, CSSA updates and practical safeguarding insight.</p>
+      <div class="rule"></div>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <span class="date">21 June 2026 &middot; Welcome</span>
+        <h3>Welcome to Safeguarding Assured</h3>
+        <p>Why I started Safeguarding Assured, and what I'll be sharing here: reflections on practice, plain-language CSSA updates, and lessons from audit preparation you can use in your own setting.</p>
+        <a class="more" href="news.html">Read the full post &rarr;</a>
+      </div>
+      <div class="news-card">
+        <span class="date">Coming soon</span>
+        <h3>More updates on the way</h3>
+        <p>New reflections and safeguarding insight will appear here each month. Is there a topic you'd like me to cover? I'd be glad to hear from you.</p>
+        <a class="more" href="#contact">Suggest a topic &rarr;</a>
+      </div>
+    </div>
+    <div class="news-foot">
+      <a href="news.html">View all news &amp; insights</a>
     </div>
   </div>
 </section>
