@@ -104,6 +104,19 @@
   #ofsted p{color:#cdd8e6;font-size:17px;}
   #ofsted .std{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.20);}
 
+  /* ---------- System marquee ---------- */
+  #system{background:var(--navy);border-top:3px solid var(--gold);padding:46px 0;overflow:hidden;}
+  #system .sys-head{text-align:center;margin-bottom:24px;}
+  #system .sys-head .eyebrow{color:var(--gold);}
+  #system h2{color:#fff;font-size:26px;}
+  .marq{overflow:hidden;}
+  .marq-track{display:flex;gap:14px;width:max-content;animation:marqScroll 36s linear infinite;}
+  .marq:hover .marq-track{animation-play-state:paused;}
+  @keyframes marqScroll{to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion:reduce){.marq-track{animation:none;flex-wrap:wrap;justify-content:center;}}
+  .mchip{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.20);border-radius:30px;padding:10px 20px;font-weight:600;font-size:14.5px;color:#fff;white-space:nowrap;}
+  .mchip .d{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
   /* ---------- Sectors ---------- */
   .sectors{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   .sector{border:1px solid var(--border);border-radius:12px;padding:30px;background:#fff;}
@@ -358,6 +371,37 @@
       <div class="std"><span class="tick">&#10003;</span> Training &amp; induction</div>
       <div class="std"><span class="tick">&#10003;</span> Online safety &amp; child-on-child abuse</div>
       <div class="std"><span class="tick">&#10003;</span> Pupil voice &amp; leadership oversight</div>
+    </div>
+  </div>
+</section>
+
+<section id="system">
+  <div class="wrap">
+    <div class="sys-head">
+      <span class="eyebrow">I work to, and alongside</span>
+      <h2>Fluent across the safeguarding system</h2>
+    </div>
+  </div>
+  <div class="marq" aria-label="Frameworks and bodies I work to and alongside">
+    <div class="marq-track">
+      <span class="mchip"><span class="d"></span>CSSA</span>
+      <span class="mchip"><span class="d"></span>RLSS</span>
+      <span class="mchip"><span class="d"></span>Ofsted</span>
+      <span class="mchip"><span class="d"></span>KCSIE</span>
+      <span class="mchip"><span class="d"></span>LADO</span>
+      <span class="mchip"><span class="d"></span>Local Authorities</span>
+      <span class="mchip"><span class="d"></span>Police</span>
+      <span class="mchip"><span class="d"></span>Charity Commission</span>
+      <span class="mchip"><span class="d"></span>DBS</span>
+      <span class="mchip"><span class="d"></span>CSSA</span>
+      <span class="mchip"><span class="d"></span>RLSS</span>
+      <span class="mchip"><span class="d"></span>Ofsted</span>
+      <span class="mchip"><span class="d"></span>KCSIE</span>
+      <span class="mchip"><span class="d"></span>LADO</span>
+      <span class="mchip"><span class="d"></span>Local Authorities</span>
+      <span class="mchip"><span class="d"></span>Police</span>
+      <span class="mchip"><span class="d"></span>Charity Commission</span>
+      <span class="mchip"><span class="d"></span>DBS</span>
     </div>
   </div>
 </section>
