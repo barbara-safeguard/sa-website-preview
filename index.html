@@ -93,6 +93,14 @@
   .std-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
   .std{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:14px 16px;font-size:15px;font-weight:600;display:flex;gap:12px;align-items:center;}
   .std .n{background:var(--gold);color:var(--navy);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-family:var(--serif);}
+  .std .tick{background:var(--gold);color:var(--navy);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-size:15px;}
+
+  /* ---------- Ofsted band ---------- */
+  #ofsted{background:var(--navy);color:#fff;border-top:3px solid var(--gold);}
+  #ofsted .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;}
+  #ofsted h2{color:#fff;font-size:30px;margin-bottom:16px;}
+  #ofsted p{color:#cdd8e6;font-size:17px;}
+  #ofsted .std{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.20);}
 
   /* ---------- Sectors ---------- */
   .sectors{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -181,7 +189,7 @@
 
   /* ---------- Responsive ---------- */
   @media(max-width:860px){
-    .about-grid,.about-me,#standards .wrap,.contact-grid{grid-template-columns:1fr;}
+    .about-grid,.about-me,#standards .wrap,#ofsted .wrap,.contact-grid{grid-template-columns:1fr;}
     .cards,.sectors,.std-grid,.story-list,#testimonials .quotes,.news-grid{grid-template-columns:1fr;}
     .stats{grid-template-columns:repeat(2,1fr);}
     .about-photo{max-width:340px;}
@@ -316,14 +324,33 @@
       <p>Every engagement is structured around the Catholic Safeguarding Standards Agency framework, so your evidence, policies and reporting map directly to the standards your setting is measured against.</p>
     </div>
     <div class="std-grid">
-      <div class="std"><span class="n">1</span> Embedding safeguarding</div>
-      <div class="std"><span class="n">2</span> Leadership &amp; governance</div>
-      <div class="std"><span class="n">3</span> Survivor-centred care</div>
-      <div class="std"><span class="n">4</span> Responding to concerns</div>
-      <div class="std"><span class="n">5</span> Safer recruitment</div>
-      <div class="std"><span class="n">6</span> Training &amp; support</div>
-      <div class="std"><span class="n">7</span> Managing risk</div>
-      <div class="std"><span class="n">8</span> Review &amp; improvement</div>
+      <div class="std"><span class="n">1</span> Leadership, governance &amp; culture</div>
+      <div class="std"><span class="n">2</span> Communicating the message</div>
+      <div class="std"><span class="n">3</span> Caring for those harmed</div>
+      <div class="std"><span class="n">4</span> Managing allegations &amp; concerns</div>
+      <div class="std"><span class="n">5</span> Supporting respondents</div>
+      <div class="std"><span class="n">6</span> Robust HR &amp; safer recruitment</div>
+      <div class="std"><span class="n">7</span> Training &amp; support</div>
+      <div class="std"><span class="n">8</span> Quality assurance &amp; improvement</div>
+    </div>
+  </div>
+</section>
+
+<section id="ofsted">
+  <div class="wrap">
+    <div>
+      <h2>Aligned to the Ofsted Inspection Framework</h2>
+      <p>For education settings. Safeguarding under Ofsted's framework, in force from November 2025, judged met or not met and underpinned by Keeping Children Safe in Education.</p>
+    </div>
+    <div class="std-grid">
+      <div class="std"><span class="tick">&#10003;</span> Leadership, culture &amp; governance</div>
+      <div class="std"><span class="tick">&#10003;</span> Designated Safeguarding Lead</div>
+      <div class="std"><span class="tick">&#10003;</span> Safer recruitment &amp; single central record</div>
+      <div class="std"><span class="tick">&#10003;</span> Identifying &amp; responding to concerns</div>
+      <div class="std"><span class="tick">&#10003;</span> Working with the LADO &amp; partners</div>
+      <div class="std"><span class="tick">&#10003;</span> Training &amp; induction</div>
+      <div class="std"><span class="tick">&#10003;</span> Online safety &amp; child-on-child abuse</div>
+      <div class="std"><span class="tick">&#10003;</span> Pupil voice &amp; leadership oversight</div>
     </div>
   </div>
 </section>
