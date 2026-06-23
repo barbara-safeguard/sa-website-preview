@@ -23,7 +23,9 @@
 
   header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:3px solid var(--gold);}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1080px;margin:0 auto;}
-  .brandmark{display:flex;flex-direction:column;line-height:1;}
+  .brandmark{display:flex;align-items:center;gap:11px;}
+  .bm-icon{width:30px;height:35px;flex-shrink:0;}
+  .bm-text{display:flex;flex-direction:column;line-height:1;}
   .brandmark .b1{font-family:var(--serif);font-weight:bold;color:#fff;font-size:18px;letter-spacing:1.5px;text-transform:uppercase;}
   .brandmark .b2{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:13px;margin-top:3px;}
   nav ul{list-style:none;display:flex;gap:26px;align-items:center;}
@@ -96,8 +98,11 @@
 <header>
   <div class="nav">
     <a href="index.html" class="brandmark" aria-label="Safeguarding Assured by BVPSkills home">
-      <span class="b1">Safeguarding Assured</span>
-      <span class="b2">by BVPSkills</span>
+      <svg class="bm-icon" viewBox="0 0 120 140" aria-hidden="true"><path d="M60 8 L106 26 V70 C106 102 86 122 60 132 C34 122 14 102 14 70 V26 Z" fill="none" stroke="#C9A227" stroke-width="7"/><path d="M38 70 L54 88 L86 50" fill="none" stroke="#C9A227" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="bm-text">
+        <span class="b1">Safeguarding Assured</span>
+        <span class="b2">by BVPSkills</span>
+      </span>
     </a>
     <nav>
       <button class="menu-btn" aria-label="Open menu" onclick="document.getElementById('navlist').classList.toggle('open')">&#9776;</button>
@@ -116,7 +121,7 @@
   <div class="wrap">
     <span class="eyebrow">News &amp; Insights</span>
     <h1>Safeguarding, in practice</h1>
-    <p>Regular reflections, CSSA updates and practical safeguarding insight for religious congregations and education settings.</p>
+    <p>Regular reflections, CSSA and Ofsted updates, and practical safeguarding insight for religious congregations and education settings.</p>
   </div>
 </section>
 
@@ -213,7 +218,7 @@
       </div>
       <h2>Welcome to Safeguarding Assured</h2>
       <p>Thank you for visiting. I started Safeguarding Assured by BVPSkills to help religious congregations and education settings move from good intention to clear, confident, auditable practice, and to make safeguarding feel like something that is lived day to day, not something that sits in a folder.</p>
-      <p>This is where I will share regular updates: reflections on practice, plain-language summaries of changes to the CSSA National Safeguarding Standards, lessons from audit preparation, and practical ideas you can use in your own setting. My aim is for each piece to leave you a little more prepared, supported and assured.</p>
+      <p>This is where I will share regular updates: reflections on practice, plain-language summaries of changes to the CSSA Standards and the Ofsted framework, lessons from audit and inspection preparation, and practical ideas you can use in your own setting. My aim is for each piece to leave you a little more prepared, supported and assured.</p>
       <p>If there is a safeguarding topic you would like me to cover, I would be glad to hear from you.</p>
       <p class="signoff">Barbara Veeramallay-Permaul, Founder</p>
     </article>
@@ -231,7 +236,7 @@
   <div class="wrap">
     <div>
       <strong>Safeguarding Assured by BVPSkills</strong><br>
-      Aligned to the CSSA eight National Safeguarding Standards. &copy; <span id="yr"></span>
+      Aligned to the CSSA National Safeguarding Standards and the Ofsted framework with KCSIE. &copy; <span id="yr"></span>
     </div>
     <div>
       <a href="index.html">Home</a> &nbsp;&middot;&nbsp;
