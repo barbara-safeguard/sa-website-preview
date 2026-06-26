@@ -159,7 +159,7 @@
   #subscribe .ml-form-embedWrapper{background:#fff!important;border:1px solid var(--border)!important;border-radius:12px!important;box-shadow:none!important;}
   #subscribe .ml-form-embedWrapper.embedForm{max-width:100%!important;}
   #subscribe .ml-form-embedWrapperContent,#subscribe .ml-form-embedBody{background:transparent!important;}
-  #subscribe .ml-form-embedHeader h4,#subscribe .ml-form-embedWrapper h4,#subscribe h1,#subscribe h2,#subscribe h3,#subscribe h4{font-family:var(--serif)!important;color:var(--navy)!important;}
+  #subscribe .ml-form-embedHeader h4,#subscribe .ml-form-embedWrapper h4,#subscribe h1,#subscribe h2,#subscribe h3,#subscribe h4{font-family:var(--serif)!important;color:var(--teal)!important;font-weight:700!important;}
   #subscribe .ml-form-embedBody p,#subscribe .ml-form-embedContent p,#subscribe .ml-form-embedWrapper p{color:var(--muted)!important;font-family:var(--sans)!important;}
   #subscribe input[type=email],#subscribe input[type=text]{border:1px solid var(--border)!important;border-radius:7px!important;background:var(--cream)!important;color:var(--charcoal)!important;font-family:var(--sans)!important;}
   #subscribe input[type=email]:focus,#subscribe input[type=text]:focus{border-color:var(--teal)!important;box-shadow:0 0 0 3px rgba(0,131,143,.15)!important;}
@@ -748,8 +748,9 @@ ml('account', '2462707');
         i.style.setProperty('color','#212121','important');
       });
       sec.querySelectorAll('h1,h2,h3,h4').forEach(function(h){
-        h.style.setProperty('color',NAVY,'important');
+        h.style.setProperty('color',TEAL,'important');
         h.style.setProperty('font-family','Georgia,serif','important');
+        h.style.setProperty('font-weight','700','important');
       });
     }
     brand();
