@@ -147,6 +147,9 @@
   form button{width:100%;background:var(--gold);color:var(--navy);border:none;padding:15px;border-radius:7px;font-weight:800;font-size:16px;cursor:pointer;font-family:var(--sans);}
   form button:hover{background:#dab63a;}
   .form-note{font-size:12.5px;color:var(--muted);margin-top:12px;}
+  .consent{display:flex;gap:11px;align-items:flex-start;margin:2px 0 20px;cursor:pointer;}
+  .consent input{width:18px;height:18px;flex-shrink:0;margin-top:2px;padding:0;accent-color:var(--teal);}
+  .consent span{font-weight:400;color:var(--charcoal);font-size:14px;line-height:1.5;}
 
   /* ---------- Footer ---------- */
   footer{background:#081b34;color:#9fb1c8;padding:34px 0;font-size:13.5px;}
@@ -542,6 +545,47 @@ ml('account', '2462707');
         <p>Trustee boards and governing bodies needing independent safeguarding scrutiny and stronger governance arrangements.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="feedback">
+  <div class="wrap" style="max-width:680px;">
+    <div class="sec-head">
+      <span class="eyebrow">Your Voice</span>
+      <h2>Share your experience</h2>
+      <p>Insight from the people I work alongside helps me keep improving, and gathering your voice is part of good safeguarding practice. Your feedback comes straight to me, in confidence. Nothing is ever published on this site without your permission.</p>
+      <div class="rule"></div>
+    </div>
+    <form id="feedbackForm" action="https://formspree.io/f/xykqgnkj" method="POST">
+      <input type="hidden" name="_subject" value="Website feedback — Safeguarding Assured">
+      <input type="hidden" name="form-type" value="Feedback">
+      <div class="field">
+        <label for="fb-name">Name <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
+        <input type="text" id="fb-name" name="name">
+      </div>
+      <div class="field">
+        <label for="fb-setting">Your setting or congregation <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
+        <input type="text" id="fb-setting" name="setting">
+      </div>
+      <div class="field">
+        <label for="fb-email">Email <span style="color:var(--muted);font-weight:400;">(optional, only if you'd like a reply)</span></label>
+        <input type="email" id="fb-email" name="email">
+      </div>
+      <div class="field">
+        <label for="fb-experience">Your experience working with me</label>
+        <textarea id="fb-experience" name="experience" required></textarea>
+      </div>
+      <div class="field">
+        <label for="fb-improve">What could be even better? <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
+        <textarea id="fb-improve" name="what_could_be_better"></textarea>
+      </div>
+      <label class="consent">
+        <input type="checkbox" name="consent_to_share" value="Yes, happy to be shared as a testimonial">
+        <span>I'm happy for Barbara to share my words as a testimonial on this website. Any name or setting will appear only as I have written it above.</span>
+      </label>
+      <button type="submit">Share your feedback</button>
+      <p class="form-note">Your feedback is treated in strict confidence. Please do not include sensitive case details or any names of children, survivors or respondents in this form.</p>
+    </form>
   </div>
 </section>
 
