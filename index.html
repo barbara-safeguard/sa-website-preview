@@ -721,6 +721,42 @@ ml('account', '2462707');
       window.location.href='mailto:bvpermaul@gmail.com?subject=Booking%20request%20%E2%80%94%20Safeguarding%20Assured';
     }
   });
+  // Brand the MailerLite newsletter form once it renders (its own CSS overrides plain CSS)
+  (function(){
+    var GOLD='#C9A227',GOLD_H='#dab63a',NAVY='#0B2545',TEAL='#00838F',CREAM='#F7F4EE',BORDER='#D9D5CC';
+    function brand(){
+      var sec=document.getElementById('subscribe'); if(!sec) return;
+      var btn=sec.querySelector('.ml-form-embedSubmit button, button[type=submit]');
+      if(btn){
+        btn.style.setProperty('background-color',GOLD,'important');
+        btn.style.setProperty('background',GOLD,'important');
+        btn.style.setProperty('color',NAVY,'important');
+        btn.style.setProperty('border','none','important');
+        btn.style.setProperty('border-radius','7px','important');
+        btn.style.setProperty('font-weight','800','important');
+        if(!btn.dataset.hover){
+          btn.dataset.hover='1';
+          btn.addEventListener('mouseenter',function(){btn.style.setProperty('background-color',GOLD_H,'important');btn.style.setProperty('background',GOLD_H,'important');});
+          btn.addEventListener('mouseleave',function(){btn.style.setProperty('background-color',GOLD,'important');btn.style.setProperty('background',GOLD,'important');});
+        }
+      }
+      sec.querySelectorAll('input[type=email],input[type=text]').forEach(function(i){
+        i.style.setProperty('background-color',CREAM,'important');
+        i.style.setProperty('border','1px solid '+BORDER,'important');
+        i.style.setProperty('border-radius','7px','important');
+        i.style.setProperty('color','#212121','important');
+      });
+      sec.querySelectorAll('h1,h2,h3,h4').forEach(function(h){
+        h.style.setProperty('color',NAVY,'important');
+        h.style.setProperty('font-family','Georgia,serif','important');
+      });
+    }
+    brand();
+    var mo=new MutationObserver(brand);
+    var host=document.getElementById('subscribe')||document.body;
+    mo.observe(host,{childList:true,subtree:true});
+    var n=0,iv=setInterval(function(){brand();if(++n>20)clearInterval(iv);},500);
+  })();
 </script>
 </body>
 </html>
