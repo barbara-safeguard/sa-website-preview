@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which support is right for you? — Safeguarding Assured by BVPSkills</title>
+<meta name="description" content="Answer three quick questions and Safeguarding Assured will point you to the right first step, for religious congregations and education settings.">
+<style>
+  :root{--navy:#0B2545;--teal:#00838F;--gold:#C9A227;--cream:#F7F4EE;--charcoal:#212121;--muted:#5A6577;--border:#D9D5CC;--green:#2E7D32;
+    --serif:Georgia,'Times New Roman',serif;--sans:Calibri,'Segoe UI',Candara,'Helvetica Neue',Arial,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--sans);color:var(--charcoal);background:var(--cream);line-height:1.6;font-size:17px;}
+  a{color:var(--teal);}
+  header.app{background:var(--navy);border-bottom:3px solid var(--gold);}
+  .bar{max-width:760px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;gap:13px;text-decoration:none;}
+  .bar svg{width:34px;height:40px;flex:none;}
+  .bar .b1{font-family:var(--serif);font-weight:bold;letter-spacing:1.4px;color:#fff;font-size:19px;line-height:1;}
+  .bar .b2{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:14px;}
+  .wrap{max-width:760px;margin:0 auto;padding:36px 24px 60px;}
+  .eyebrow{display:inline-block;color:var(--teal);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+  h1{font-family:var(--serif);color:var(--navy);font-size:31px;line-height:1.2;margin-bottom:10px;}
+  .intro{font-size:18px;color:var(--muted);margin-bottom:26px;max-width:640px;}
+  .q{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin-bottom:18px;}
+  .q .qn{font-family:var(--serif);color:var(--navy);font-size:19px;margin-bottom:14px;}
+  .opts{display:flex;flex-wrap:wrap;gap:10px;}
+  .opts label{cursor:pointer;}
+  .opts input{position:absolute;opacity:0;pointer-events:none;}
+  .pill{display:inline-block;padding:9px 16px;border-radius:22px;font-size:15px;border:1.5px solid var(--border);color:var(--charcoal);background:#fff;transition:all .12s;}
+  .opts label:hover .pill{border-color:var(--teal);}
+  .opts input:checked + .pill{background:var(--navy);border-color:var(--navy);color:#fff;}
+  .opts input:focus-visible + .pill{outline:2px solid var(--teal);outline-offset:2px;}
+  .btnrow{margin:6px 0 0;}
+  .btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;text-decoration:none;border:none;cursor:pointer;padding:14px 26px;border-radius:8px;font-size:16px;font-family:var(--sans);}
+  .btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .btn.book{background:var(--teal);color:#fff;}
+  .note{color:var(--muted);font-size:14px;margin-top:12px;}
+  #result{display:none;margin-top:10px;}
+  .result-card{background:#fff;border:1px solid var(--border);border-top:5px solid var(--gold);border-radius:14px;padding:28px 30px;}
+  .result-card h2{font-family:var(--serif);color:var(--navy);font-size:24px;margin-bottom:10px;}
+  .result-card p{margin-bottom:14px;}
+  .rec{background:var(--cream);border-radius:10px;padding:16px 18px;margin:16px 0;}
+  .rec .lbl{font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+  .rec .name{font-family:var(--serif);color:var(--navy);font-size:19px;margin-bottom:4px;}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
+  .restart{background:none;border:none;color:var(--teal);font-weight:700;cursor:pointer;font-size:15px;margin-top:16px;font-family:var(--sans);}
+  .err{color:#C0392B;font-weight:600;font-size:14.5px;margin-top:10px;display:none;}
+  footer{background:#081b34;color:#9fb1c8;font-size:13px;text-align:center;padding:22px 24px;}
+  footer a{color:#cdd8e6;}
+  .home{display:inline-block;margin-top:26px;color:var(--teal);font-weight:600;font-size:15px;}
+</style>
+</head>
+<body>
+<header class="app">
+  <a class="bar" href="https://safeguardassured.com">
+    <svg viewBox="0 0 120 140" aria-hidden="true"><path d="M60 8 L106 26 V70 C106 102 86 122 60 132 C34 122 14 102 14 70 V26 Z" fill="none" stroke="#C9A227" stroke-width="7"/><path d="M38 70 L54 88 L86 50" fill="none" stroke="#C9A227" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span><span class="b1">SAFEGUARDING ASSURED</span><br><span class="b2">by BVPSkills</span></span>
+  </a>
+</header>
+
+<div class="wrap">
+  <span class="eyebrow">Find your starting point</span>
+  <h1>Which support is right for you?</h1>
+  <p class="intro">Not sure where to begin? Answer three quick questions and I'll point you to a sensible first step. There are no wrong answers, and nothing you choose is saved or sent.</p>
+
+  <div id="questions">
+    <div class="q">
+      <div class="qn">1. Which best describes your setting?</div>
+      <div class="opts" id="q1">
+        <label><input type="radio" name="q1" value="religious"><span class="pill">A religious congregation or church body</span></label>
+        <label><input type="radio" name="q1" value="education"><span class="pill">A school or education setting</span></label>
+        <label><input type="radio" name="q1" value="other"><span class="pill">A charity or other organisation, or not sure</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="qn">2. Where are you right now?</div>
+      <div class="opts" id="q2">
+        <label><input type="radio" name="q2" value="upcoming"><span class="pill">An audit or inspection is coming up</span></label>
+        <label><input type="radio" name="q2" value="prepare"><span class="pill">We want to get ready, before one is scheduled</span></label>
+        <label><input type="radio" name="q2" value="improve"><span class="pill">We've had one and want to embed and improve</span></label>
+        <label><input type="radio" name="q2" value="overwhelmed"><span class="pill">We're starting out and feel a bit overwhelmed</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="qn">3. What would help most right now?</div>
+      <div class="opts" id="q3">
+        <label><input type="radio" name="q3" value="stand"><span class="pill">Knowing where we stand</span></label>
+        <label><input type="radio" name="q3" value="policy"><span class="pill">Policies, evidence and documents</span></label>
+        <label><input type="radio" name="q3" value="training"><span class="pill">Training or DSL support</span></label>
+        <label><input type="radio" name="q3" value="assurance"><span class="pill">Ongoing assurance and reporting</span></label>
+        <label><input type="radio" name="q3" value="governance"><span class="pill">Independent scrutiny and governance</span></label>
+      </div>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" onclick="showResult()">Show my starting point</button>
+      <p class="err" id="err">Please choose an answer to all three questions.</p>
+    </div>
+  </div>
+
+  <div id="result">
+    <div class="result-card">
+      <h2 id="rTitle"></h2>
+      <div id="rBody"></div>
+      <div class="rec">
+        <div class="lbl">A good first step</div>
+        <div class="name" id="rRecName"></div>
+        <div id="rRecDesc"></div>
+      </div>
+      <div id="rReadiness"></div>
+      <div class="cta-row">
+        <a class="btn book" id="rBook" href="https://calendly.com/bvpermaul/30min" target="_blank" rel="noopener">Book a 30-minute call</a>
+        <a class="btn ghost" href="https://safeguardassured.com/#contact">Send a message instead</a>
+      </div>
+      <button class="restart" onclick="restart()">&larr; Start again</button>
+    </div>
+  </div>
+
+  <a class="home" href="https://safeguardassured.com">&larr; Back to safeguardassured.com</a>
+</div>
+
+<footer>
+  Safeguarding Assured by BVPSkills &nbsp;·&nbsp; <a href="https://safeguardassured.com">safeguardassured.com</a> &nbsp;·&nbsp; This guide is indicative and confidential; nothing you enter is saved or sent.
+</footer>
+
+<script>
+var NEED={
+  stand:{name:"an Audit Sprint Session",desc:"a focused, intensive review to see exactly where you stand, identify gaps, prioritise risk and leave with a clear action plan you can actually use."},
+  policy:{name:"Policy and Document Development",desc:"bespoke policies, trackers, trustee or governor reports and process flows, structured around the framework you are measured against."},
+  training:{name:"Safeguarding Awareness Training and DSL support",desc:"practical, values-led training tailored to your people, and mentoring for your Designated Safeguarding Lead."},
+  assurance:{name:"Assurance and Monthly Reporting",desc:"assurance frameworks and monthly safeguarding reporting that give leaders and boards a clear, current picture of maturity and risk."},
+  governance:{name:"Governance and Independent Scrutiny",desc:"independent scrutiny for trustee boards and governing bodies, strengthening oversight and governance arrangements."}
+};
+function val(n){var el=document.querySelector('input[name="'+n+'"]:checked');return el?el.value:null;}
+function showResult(){
+  var s=val('q1'),stage=val('q2'),need=val('q3');
+  if(!s||!stage||!need){document.getElementById('err').style.display='block';return;}
+  document.getElementById('err').style.display='none';
+
+  var framework = s==='religious' ? "the CSSA eight National Safeguarding Standards"
+                : s==='education' ? "the Ofsted framework and Keeping Children Safe in Education"
+                : "the standards your setting is measured against";
+
+  var title="Here's a sensible first step";
+  var intro="";
+  if(stage==='overwhelmed'){
+    title="First, take a breath";
+    intro="Feeling overwhelmed is common, and completely understandable. It is exactly what my work is here to take away. We will move at your pace, and turn worry into calm, evidenced confidence.";
+  } else if(stage==='upcoming'){
+    intro="With scrutiny on the horizon, the priority is to see where you stand and close any gaps quickly and calmly. An audit or inspection can become a non-event when the basics are watertight and evidenced.";
+  } else if(stage==='improve'){
+    intro="Embedding and improving after an audit or inspection is the mark of a mature safeguarding culture. Let's build on what is working and strengthen the rest.";
+  } else {
+    intro="Preparing before anything is scheduled is the wisest place to be. It means readiness becomes permanent, not a last-minute scramble.";
+  }
+  intro += " Your work would be shaped around " + framework + ".";
+
+  // Primary recommendation: if scrutiny is upcoming and they want to know where they stand, lead with the Audit Sprint.
+  var rec = NEED[need];
+  if(stage==='upcoming' && (need==='stand' || need==='policy')){ rec = NEED['stand']; }
+
+  document.getElementById('rTitle').textContent=title;
+  document.getElementById('rBody').innerHTML="<p>"+intro+"</p>";
+  document.getElementById('rRecName').textContent=rec.name.charAt(0).toUpperCase()+rec.name.slice(1);
+  document.getElementById('rRecDesc').textContent=rec.desc;
+
+  var rd=document.getElementById('rReadiness');
+  if(s==='religious'){
+    rd.innerHTML='<p>You could also start for free, right now, with the <a href="readiness.html">CSSA safeguarding readiness check</a>, to see your position in a few honest minutes.</p>';
+  } else if(s==='education'){
+    rd.innerHTML='<p>You could also start for free, right now, with the <a href="readiness-education.html">Ofsted and KCSIE readiness check</a>, to see your position in a few honest minutes.</p>';
+  } else {
+    rd.innerHTML='<p>You could also try a free readiness check to see where you stand: the <a href="readiness.html">CSSA check</a> for religious settings, or the <a href="readiness-education.html">Ofsted and KCSIE check</a> for schools.</p>';
+  }
+
+  document.getElementById('questions').style.display='none';
+  document.getElementById('result').style.display='block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function restart(){
+  document.querySelectorAll('input[type=radio]').forEach(function(r){r.checked=false;});
+  document.getElementById('result').style.display='none';
+  document.getElementById('questions').style.display='block';
+  document.getElementById('questions').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
