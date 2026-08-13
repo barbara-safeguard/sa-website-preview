@@ -530,7 +530,7 @@ ml('account', '2462707');
     <div class="sec-head">
       <span class="eyebrow">Success Stories</span>
       <h2>From audit and inspection anxiety to calm, evidenced control</h2>
-      <p>Recent impact, to date alongside Catholic religious congregations and missionary organisations, with the same rigour and care ready for Catholic schools and education settings preparing for inspection.</p>
+      <p>Recent impact, to date alongside Catholic religious congregations and missionary organisations, with the same rigour and care ready for Catholic schools and education settings preparing for inspection. In September 2026 I am leading a full training provider review, supporting a growing contract for young adults with varying support needs.</p>
       <div class="rule"></div>
     </div>
     <div class="stats">
@@ -547,6 +547,7 @@ ml('account', '2462707');
       <div class="story"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4 10-12"/></svg></span><p>Supported a congregation to be recognised as an exemplar across several key areas in their CSSA engagement.</p></div>
       <div class="story"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4 10-12"/></svg></span><p>Worked to Ofsted safeguarding frameworks for over ten years, meeting safeguarding arrangements and expected practice with a 100% success record, the same calm, evidenced readiness a school finds at inspection and a congregation at audit.</p></div>
       <div class="story"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4 10-12"/></svg></span><p>Moved clients from audit and inspection anxiety to calm, evidenced control, embedding safeguarding as a culture that is lived, not simply filed.</p></div>
+      <div class="story"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4 10-12"/></svg></span><p>Serve on the advisory boards of two education organisations, leading and overseeing their safeguarding arrangements.</p></div>
     </div>
   </div>
 </section>
@@ -862,10 +863,15 @@ ml('account', '2462707');
   bar.classList.add('reveal');
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(reduce||!('IntersectionObserver' in window)){bar.classList.add('in');return;}
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){bar.classList.add('in');io.disconnect();}});
-  },{threshold:0.25});
-  io.observe(bar);
+  var shown=false;function show(){if(shown)return;shown=true;bar.classList.add('in');}
+  try{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){show();io.disconnect();}});
+    },{threshold:0.25});
+    io.observe(bar);
+  }catch(err){show();}
+  // Safety fallback: never leave the credentials hidden.
+  setTimeout(show,2500);
 })();
 </script>
 </body>
