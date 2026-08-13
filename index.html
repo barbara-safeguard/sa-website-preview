@@ -103,6 +103,20 @@
   .std{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:14px 16px;font-size:15px;font-weight:600;display:flex;gap:12px;align-items:center;}
   .std .n{background:var(--gold);color:var(--navy);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-family:var(--serif);}
   .std .tick{background:var(--gold);color:var(--navy);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-size:15px;}
+  /* Interactive standards explorer */
+  .std-hint{color:#bfe6e8!important;font-size:14px!important;margin-top:10px;}
+  .std.std-btn{cursor:pointer;text-align:left;width:100%;font:inherit;color:#fff;font-weight:600;transition:background .15s,border-color .15s;}
+  .std.std-btn:hover{background:rgba(255,255,255,.18);}
+  .std.std-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  .std.std-btn[aria-expanded="true"]{background:rgba(255,255,255,.20);border-color:var(--gold);}
+  .std.std-btn .chev{margin-left:auto;transition:transform .2s;opacity:.85;font-size:12px;color:var(--gold);}
+  .std.std-btn[aria-expanded="true"] .chev{transform:rotate(90deg);}
+  .std-detail{grid-column:1 / -1;background:rgba(255,255,255,.12);border:1px solid var(--gold);border-radius:10px;padding:0 20px;max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .22s ease,padding .3s ease,margin-top .3s ease;margin-top:0;}
+  .std-detail.open{max-height:460px;opacity:1;padding:18px 20px;margin-top:14px;}
+  .std-detail h3{font-family:var(--serif);color:var(--gold);font-size:19px;margin:0 0 8px;}
+  .std-detail .lead{color:#fff!important;font-size:16px;margin:0 0 12px;line-height:1.5;}
+  .std-detail .ev-label{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px;}
+  .std-detail .ev{color:#eaf6f7!important;font-size:15px;margin:0;line-height:1.5;}
 
   /* ---------- Ofsted band ---------- */
   #ofsted{background:var(--navy);color:#fff;border-top:3px solid var(--gold);}
@@ -339,6 +353,7 @@ ml('account', '2462707');
     </div>
   </div>
 </section>
+
 <section id="about">
   <div class="wrap">
     <div class="sec-head">
@@ -424,16 +439,18 @@ ml('account', '2462707');
     <div>
       <h2>Aligned to the CSSA eight National Safeguarding Standards</h2>
       <p>Every engagement is structured around the Catholic Safeguarding Standards Agency framework, so your evidence, policies and reporting map directly to the standards your setting is measured against.</p>
+      <p class="std-hint">Select a standard to see what it means, and what good evidence looks like.</p>
     </div>
     <div class="std-grid">
-      <div class="std"><span class="n">1</span> Leadership, governance &amp; culture</div>
-      <div class="std"><span class="n">2</span> Communicating the message</div>
-      <div class="std"><span class="n">3</span> Caring for those harmed</div>
-      <div class="std"><span class="n">4</span> Managing allegations &amp; concerns</div>
-      <div class="std"><span class="n">5</span> Supporting respondents</div>
-      <div class="std"><span class="n">6</span> Robust HR &amp; safer recruitment</div>
-      <div class="std"><span class="n">7</span> Training &amp; support</div>
-      <div class="std"><span class="n">8</span> Quality assurance &amp; improvement</div>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="std-detail" data-title="1. Leadership, governance, ministry and culture" data-mean="Safeguarding starts at the top. Trustees and leaders set the tone, own the risks, and make sure a culture of safeguarding runs through every part of the congregation's life and ministry." data-ev="A safeguarding policy approved by trustees, a named lead with clear terms of reference, safeguarding as a standing item at trustee meetings, and a budget that properly resources the work."><span class="n">1</span> Leadership, governance &amp; culture <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="std-detail" data-title="2. Communicating the safeguarding message" data-mean="Everyone who comes into contact with the congregation knows how to raise a concern and who to go to. Safeguarding information is visible, current, and easy to find." data-ev="Published contact details for the safeguarding lead, posters and website information, a clear complaints route, and materials made accessible to those who may be more vulnerable."><span class="n">2</span> Communicating the message <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="std-detail" data-title="3. Engaging with and caring for those who report having been harmed" data-mean="People who come forward are heard, believed, and supported. Their needs, not the institution's, guide the response." data-ev="A survivor-sensitive response protocol, records of support offered, referrals to independent support, and evidence that those affected are kept informed throughout."><span class="n">3</span> Caring for those harmed <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="std-detail" data-title="4. Effective management of allegations and concerns" data-mean="Concerns are recognised, recorded, and acted on quickly, with the right referrals made to statutory agencies every time." data-ev="A clear referral pathway, a confidential concerns log, evidence of timely referrals to the police, local authority and CSSA, and case records that show follow-through."><span class="n">4</span> Managing allegations &amp; concerns <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="std-detail" data-title="5. Management and support of respondents" data-mean="Where someone is the subject of an allegation, they are managed safely and fairly, with risk properly assessed and kept under review." data-ev="Risk assessments and safety plans, a record of any agreed restrictions, regular review of those arrangements, and support that is proportionate and documented."><span class="n">5</span> Supporting respondents <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="std-detail" data-title="6. Robust human resource management" data-mean="Safer recruitment runs from advert to induction, so the right people are appointed and vetting is never skipped." data-ev="A single central record, enhanced DBS checks at the correct level, references verified, and safer-recruitment training for everyone involved in appointing people."><span class="n">6</span> Robust HR &amp; safer recruitment <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="std-detail" data-title="7. Training and support for safeguarding" data-mean="Everyone receives training suited to their role, kept up to date, and knows they will be supported when they act on a concern." data-ev="A training matrix by role, in-date certificates, an induction that covers safeguarding, and supervision or support for those carrying safeguarding responsibility."><span class="n">7</span> Training &amp; support <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="std-detail" data-title="8. Quality assurance and continuous improvement" data-mean="The congregation checks that safeguarding actually works in practice, learns from what it finds, and keeps improving." data-ev="An annual self-audit against the standards, a live action or development plan, case-file audits, and evidence that lessons learned lead to real change."><span class="n">8</span> Quality assurance &amp; improvement <span class="chev">&#9656;</span></button>
+      <div class="std-detail" id="std-detail" role="region" aria-live="polite"><h3></h3><p class="lead"></p><span class="ev-label">Evidence that shows it is met</span><p class="ev"></p></div>
     </div>
   </div>
 </section>
@@ -746,15 +763,18 @@ ml('account', '2462707');
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+  // Close mobile menu on link click
   document.querySelectorAll('#navlist a').forEach(function(a){
     a.addEventListener('click',function(){document.getElementById('navlist').classList.remove('open');});
   });
+  // Booking button placeholder — replace '#' with your Calendly/scheduling link
   document.getElementById('bookBtn').addEventListener('click',function(e){
     if(this.getAttribute('href')==='#'){
       e.preventDefault();
       window.location.href='mailto:bvpermaul@gmail.com?subject=Booking%20request%20%E2%80%94%20Safeguarding%20Assured';
     }
   });
+  // Brand the MailerLite newsletter form once it renders (its own CSS overrides plain CSS)
   (function(){
     var GOLD='#C9A227',GOLD_H='#dab63a',NAVY='#0B2545',TEAL='#00838F',CREAM='#F7F4EE',BORDER='#D9D5CC';
     function brand(){
@@ -791,6 +811,28 @@ ml('account', '2462707');
     mo.observe(host,{childList:true,subtree:true});
     var n=0,iv=setInterval(function(){brand();if(++n>20)clearInterval(iv);},500);
   })();
+</script>
+<script>
+(function(){
+  var grid=document.querySelector('#standards .std-grid');
+  if(!grid) return;
+  var detail=grid.querySelector('.std-detail');
+  var btns=grid.querySelectorAll('.std-btn');
+  function closeAll(){detail.classList.remove('open');btns.forEach(function(b){b.setAttribute('aria-expanded','false');});}
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var isOpen=b.getAttribute('aria-expanded')==='true';
+      closeAll();
+      if(!isOpen){
+        detail.querySelector('h3').textContent=b.getAttribute('data-title');
+        detail.querySelector('.lead').textContent=b.getAttribute('data-mean');
+        detail.querySelector('.ev').textContent=b.getAttribute('data-ev');
+        detail.classList.add('open');
+        b.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
