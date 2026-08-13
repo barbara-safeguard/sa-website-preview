@@ -124,6 +124,8 @@
   #ofsted h2{color:#fff;font-size:30px;margin-bottom:16px;}
   #ofsted p{color:#cdd8e6;font-size:17px;}
   #ofsted .std{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.20);}
+  #ofsted .std.std-btn:hover{background:rgba(255,255,255,.16);}
+  #ofsted .std.std-btn[aria-expanded="true"]{background:rgba(255,255,255,.18);border-color:var(--gold);}
 
   /* ---------- System marquee ---------- */
   #system{background:var(--navy);border-top:3px solid var(--gold);padding:46px 0;overflow:hidden;}
@@ -460,16 +462,18 @@ ml('account', '2462707');
     <div>
       <h2>Aligned to the Ofsted Inspection Framework</h2>
       <p>For education settings. Safeguarding under Ofsted's framework, in force from November 2025, judged met or not met and underpinned by Keeping Children Safe in Education.</p>
+      <p class="std-hint">Select an area to see what it means, and what good evidence looks like.</p>
     </div>
     <div class="std-grid">
-      <div class="std"><span class="tick">&#10003;</span> Leadership, culture &amp; governance</div>
-      <div class="std"><span class="tick">&#10003;</span> Designated Safeguarding Lead</div>
-      <div class="std"><span class="tick">&#10003;</span> Safer recruitment &amp; single central record</div>
-      <div class="std"><span class="tick">&#10003;</span> Identifying &amp; responding to concerns</div>
-      <div class="std"><span class="tick">&#10003;</span> Working with the LADO &amp; partners</div>
-      <div class="std"><span class="tick">&#10003;</span> Training &amp; induction</div>
-      <div class="std"><span class="tick">&#10003;</span> Online safety &amp; child-on-child abuse</div>
-      <div class="std"><span class="tick">&#10003;</span> Pupil voice &amp; leadership oversight</div>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="ofsted-detail" data-title="Leadership, culture and governance" data-mean="Leaders and governors create a culture where safeguarding is everyone's responsibility, where staff feel able to raise concerns and children feel safe to speak up." data-ev="A safeguarding policy reviewed at least annually, a named safeguarding governor and board oversight, staff who know the reporting routes, and a culture check through staff and pupil surveys."><span class="tick">&#10003;</span> Leadership, culture &amp; governance <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="ofsted-detail" data-title="Designated Safeguarding Lead" data-mean="A senior member of staff leads on safeguarding, with the time, training and authority to make referrals and hold the whole system together." data-ev="A DSL and trained deputies named and known, an up-to-date role description, DSL training refreshed at least every two years, and clear cover when the DSL is unavailable."><span class="tick">&#10003;</span> Designated Safeguarding Lead <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="ofsted-detail" data-title="Safer recruitment and the single central record" data-mean="The right checks happen before anyone starts, and they are recorded in one place that is always inspection-ready." data-ev="A complete single central record, enhanced DBS with barred-list checks where required, identity, right-to-work and reference checks, and a safer-recruitment-trained person on every panel."><span class="tick">&#10003;</span> Safer recruitment &amp; single central record <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="ofsted-detail" data-title="Identifying and responding to concerns" data-mean="Staff spot the signs early, record concerns the same day, and concerns are acted on and escalated without delay." data-ev="A clear referral pathway to children's social care, a secure recording system, evidence of timely referrals and follow-up, and thresholds that staff understand and use."><span class="tick">&#10003;</span> Identifying &amp; responding to concerns <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="ofsted-detail" data-title="Working with the LADO and partners" data-mean="Allegations against staff are handled properly, and the setting works openly with the local authority designated officer and other agencies." data-ev="A low-level concerns policy, records of LADO referrals and outcomes, information shared appropriately with partners, and multi-agency records where relevant."><span class="tick">&#10003;</span> Working with the LADO &amp; partners <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="ofsted-detail" data-title="Training and induction" data-mean="Everyone is trained for their role and inducted before they work with children, and training is kept current." data-ev="All staff have read Part One of Keeping Children Safe in Education, a training log with dates, safeguarding covered at induction, and regular updates through the year."><span class="tick">&#10003;</span> Training &amp; induction <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="ofsted-detail" data-title="Online safety and child-on-child abuse" data-mean="Children are protected online and from harm by their peers, with clear routes to report and a culture that never normalises abuse." data-ev="Appropriate filtering and monitoring, an online-safety and peer-on-peer abuse policy, curriculum coverage, and records of how reports are handled and followed up."><span class="tick">&#10003;</span> Online safety &amp; child-on-child abuse <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="ofsted-detail" data-title="Pupil voice and leadership oversight" data-mean="Children are listened to, and leaders check that safeguarding actually works in practice rather than only on paper." data-ev="Pupil surveys and voice mechanisms, case-file audits, a safeguarding section in leadership and governor reports, and evidence that findings lead to change."><span class="tick">&#10003;</span> Pupil voice &amp; leadership oversight <span class="chev">&#9656;</span></button>
+      <div class="std-detail" id="ofsted-detail" role="region" aria-live="polite"><h3></h3><p class="lead"></p><span class="ev-label">Evidence that shows it is met</span><p class="ev"></p></div>
     </div>
   </div>
 </section>
@@ -814,22 +818,25 @@ ml('account', '2462707');
 </script>
 <script>
 (function(){
-  var grid=document.querySelector('#standards .std-grid');
-  if(!grid) return;
-  var detail=grid.querySelector('.std-detail');
-  var btns=grid.querySelectorAll('.std-btn');
-  function closeAll(){detail.classList.remove('open');btns.forEach(function(b){b.setAttribute('aria-expanded','false');});}
-  btns.forEach(function(b){
-    b.addEventListener('click',function(){
-      var isOpen=b.getAttribute('aria-expanded')==='true';
-      closeAll();
-      if(!isOpen){
-        detail.querySelector('h3').textContent=b.getAttribute('data-title');
-        detail.querySelector('.lead').textContent=b.getAttribute('data-mean');
-        detail.querySelector('.ev').textContent=b.getAttribute('data-ev');
-        detail.classList.add('open');
-        b.setAttribute('aria-expanded','true');
-      }
+  ['#standards .std-grid','#ofsted .std-grid'].forEach(function(sel){
+    var grid=document.querySelector(sel);
+    if(!grid) return;
+    var detail=grid.querySelector('.std-detail');
+    var btns=grid.querySelectorAll('.std-btn');
+    if(!detail||!btns.length) return;
+    function closeAll(){detail.classList.remove('open');btns.forEach(function(b){b.setAttribute('aria-expanded','false');});}
+    btns.forEach(function(b){
+      b.addEventListener('click',function(){
+        var isOpen=b.getAttribute('aria-expanded')==='true';
+        closeAll();
+        if(!isOpen){
+          detail.querySelector('h3').textContent=b.getAttribute('data-title');
+          detail.querySelector('.lead').textContent=b.getAttribute('data-mean');
+          detail.querySelector('.ev').textContent=b.getAttribute('data-ev');
+          detail.classList.add('open');
+          b.setAttribute('aria-expanded','true');
+        }
+      });
     });
   });
 })();
