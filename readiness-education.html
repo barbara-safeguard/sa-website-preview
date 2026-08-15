@@ -136,6 +136,13 @@
     font-size:11.5px; color:var(--grey);}
   footer.foot .cc{font-weight:bold; letter-spacing:.5px;}
 
+  .maturity-badge{display:none; font-family:var(--body); font-size:13px; font-weight:bold;
+    letter-spacing:.3px; padding:4px 14px; border-radius:20px; margin-bottom:8px;}
+  .maturity-badge.mat-green{background:var(--green); color:#fff;}
+  .maturity-badge.mat-teal{background:var(--teal); color:#fff;}
+  .maturity-badge.mat-amber{background:var(--amber); color:var(--navy);}
+  .maturity-badge.mat-red{background:var(--red); color:#fff;}
+
   .hidden{display:none !important;}
   .print-only{display:none;}
 
@@ -158,6 +165,7 @@
 <script>
 (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');ml('account','2462707');
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
@@ -209,8 +217,10 @@
         <span class="lbl">Readiness</span>
       </div></div>
       <div class="dash-summary">
+        <span class="maturity-badge" id="matLevel"></span>
         <h2 id="bandTitle">Your safeguarding readiness</h2>
         <p id="bandText"></p>
+        <p id="benchLine" style="margin:8px 0 0; font-size:13px; color:#cfe0ea; font-style:italic;"></p>
         <p class="print-only" id="printDate" style="margin-top:8px;"></p>
       </div>
     </div>
@@ -240,7 +250,8 @@
     </div>
 
     <div class="btnbar no-print">
-      <button class="act primary" onclick="window.print()">Print / save as PDF</button>
+      <button class="act primary" onclick="downloadPDF()">Download my report (PDF)</button>
+      <button class="act secondary" onclick="window.print()">Print / save as PDF</button>
       <button class="act secondary" onclick="document.getElementById('questions').scrollIntoView({behavior:'smooth'})">Back to questions</button>
     </div>
 
@@ -432,8 +443,71 @@ function calculate(){
     ctaText.textContent='A focused review with an independent Designated Safeguarding Lead can help you close these gaps, evidence your compliance, and prepare with confidence for Ofsted inspection and governor scrutiny.';
   }
 
+  const matEl=document.getElementById('matLevel');
+  const benchEl=document.getElementById('benchLine');
+  if(gc>0){
+    const ml=maturityLevel(overall);
+    matEl.className='maturity-badge '+ml.cls; matEl.textContent='Maturity level: '+ml.name;
+    matEl.style.display='inline-block';
+    benchEl.textContent='For context, most settings I work with begin in the Developing range before their first inspection, and gain the most by getting the safeguarding non-negotiables watertight first.';
+  } else {
+    matEl.style.display='none'; benchEl.textContent='';
+  }
+
   document.getElementById('dashboard').classList.remove('hidden');
   document.getElementById('dashboard').scrollIntoView({behavior:'smooth'});
+}
+
+function maturityLevel(pct){
+  if(pct>=85) return {key:'exemplar',    name:'Exemplar',     cls:'mat-green'};
+  if(pct>=65) return {key:'established',  name:'Established',   cls:'mat-teal'};
+  if(pct>=40) return {key:'developing',  name:'Developing',    cls:'mat-amber'};
+  return       {key:'foundational', name:'Foundational',  cls:'mat-red'};
+}
+
+function downloadPDF(){
+  const J = window.jspdf && window.jspdf.jsPDF;
+  if(!J){ alert('The report tool is still loading, please try again in a moment.'); return; }
+  const doc = new J({unit:'pt', format:'a4'});
+  const W = doc.internal.pageSize.getWidth();
+  const navy=[11,37,69], gold=[201,162,39], teal=[0,131,143], green=[46,125,50], amber=[230,149,0], red=[192,57,43], grey=[108,117,125];
+  doc.setFillColor(...navy); doc.rect(0,0,W,72,'F');
+  doc.setTextColor(255); doc.setFont('times','bold'); doc.setFontSize(18); doc.text('SAFEGUARDING ASSURED',40,40);
+  doc.setFont('times','italic'); doc.setFontSize(11); doc.text('by BVPSkills',40,56);
+  doc.setFillColor(...gold); doc.rect(0,72,W,4,'F');
+  let y=104;
+  doc.setTextColor(...navy); doc.setFont('times','bold'); doc.setFontSize(16);
+  doc.text('Ofsted and KCSIE Safeguarding Maturity Scorecard',40,y); y+=22;
+  const d=new Date();
+  doc.setFont('helvetica','normal'); doc.setFontSize(10); doc.setTextColor(...grey);
+  doc.text('Assessment date: '+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}),40,y); y+=26;
+  let grand=0, gc=0; const rows=[];
+  STANDARDS.forEach(s=>{
+    const r=standardResult(s); let label,scoreTxt,col;
+    if(r.answered===0){ label='Not started'; scoreTxt='-'; col=grey; }
+    else if(r.allNA){ label='N/A'; scoreTxt='-'; col=grey; }
+    else{ const cls=ragClass(r.pct); label=ragLabel(r.pct); scoreTxt=r.pct+'%';
+      col=cls==='green'?green:cls==='amber'?amber:red; grand+=r.pct; gc++; }
+    rows.push({n:s.n,title:s.title,label,scoreTxt,col});
+  });
+  const overall=gc?Math.round(grand/gc):0; const ml=maturityLevel(overall);
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(...navy);
+  doc.text('Overall readiness: '+overall+'%     Maturity level: '+ml.name,40,y); y+=22;
+  doc.setDrawColor(...gold); doc.setLineWidth(1.2); doc.line(40,y,W-40,y); y+=16;
+  doc.setFontSize(9.5);
+  rows.forEach(r=>{
+    if(y>770){ doc.addPage(); y=54; }
+    doc.setTextColor(...navy); doc.setFont('helvetica','bold'); doc.text(String(r.n),40,y);
+    doc.setFont('helvetica','normal'); const title=doc.splitTextToSize(r.title,360); doc.text(title,58,y);
+    doc.setTextColor(...r.col); doc.setFont('helvetica','bold'); doc.text(r.label+'   '+r.scoreTxt,452,y);
+    y += Math.max(title.length*11,12)+8;
+    doc.setDrawColor(230); doc.setLineWidth(0.5); doc.line(40,y-5,W-40,y-5);
+  });
+  y+=12; if(y>760){ doc.addPage(); y=54; }
+  doc.setTextColor(...grey); doc.setFont('helvetica','italic'); doc.setFontSize(8.5);
+  const note=doc.splitTextToSize('This is an indicative self-assessment, not a formal safeguarding audit. Your answers stay in your browser and are not sent. Prepared with Safeguarding Assured by BVPSkills, safeguardassured.com. (c) 2026 Safeguarding Assured by BVPSkills.',W-80);
+  doc.text(note,40,y);
+  doc.save('Ofsted-KCSIE-Safeguarding-Maturity-Scorecard.pdf');
 }
 
 function resetAll(){
