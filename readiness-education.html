@@ -143,6 +143,14 @@
   .maturity-badge.mat-amber{background:var(--amber); color:var(--navy);}
   .maturity-badge.mat-red{background:var(--red); color:#fff;}
 
+  .unlock-gate{margin:18px 0; background:#fff; border:1px solid #EAD79A; border-left:5px solid var(--gold); border-radius:0 10px 10px 0; padding:18px 22px;}
+  .unlock-gate .ug-h{font-family:var(--heading); color:var(--navy); font-size:18px; font-weight:bold; margin:0 0 6px;}
+  .unlock-gate .lockico{color:var(--gold); margin-right:6px;}
+  .unlock-gate p{margin:0 0 12px; font-size:14.5px;}
+  .unlock-gate .already{margin-top:12px; font-size:13px; color:var(--grey);}
+  .unlock-gate .already a{color:var(--teal); font-weight:700; cursor:pointer; text-decoration:underline;}
+  .locked{filter:blur(7px); pointer-events:none; user-select:none; max-height:220px; overflow:hidden; -webkit-mask-image:linear-gradient(#000 55%, transparent); mask-image:linear-gradient(#000 55%, transparent);}
+
   .hidden{display:none !important;}
   .print-only{display:none;}
 
@@ -225,15 +233,29 @@
       </div>
     </div>
 
-    <table class="results">
-      <thead><tr><th style="width:44px;">#</th><th>Safeguarding area</th>
-      <th style="width:120px;">Status</th><th style="width:80px;text-align:center;">Score</th></tr></thead>
-      <tbody id="resultsBody"></tbody>
-    </table>
+    <div class="unlock-gate no-print" id="unlockGate">
+      <div class="ug-h"><span class="lockico">&#128274;</span>Unlock your full results</div>
+      <p>You can see your headline score and maturity level above. Enter your email to unlock your area-by-area breakdown, your priority actions, and a branded PDF report to keep. Only your email is sent, never your answers.</p>
+      <div id="mlwrap-sae"><div class="ml-embedded" data-form="SCUzfp"></div></div>
+      <div class="already">Already subscribed? <a onclick="unlockResults()">Unlock your results</a>.</div>
+    </div>
 
-    <div class="actions-block" id="actionsBlock">
-      <h3>Priority actions</h3>
-      <div id="actionsList"></div>
+    <div id="lockedZone" class="locked">
+      <table class="results">
+        <thead><tr><th style="width:44px;">#</th><th>Safeguarding area</th>
+        <th style="width:120px;">Status</th><th style="width:80px;text-align:center;">Score</th></tr></thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+
+      <div class="actions-block" id="actionsBlock">
+        <h3>Priority actions</h3>
+        <div id="actionsList"></div>
+      </div>
+
+      <div class="btnbar no-print">
+        <button class="act primary" onclick="downloadPDF()">Download my report (PDF)</button>
+        <button class="act secondary" onclick="window.print()">Print / save as PDF</button>
+      </div>
     </div>
 
     <div class="cta" id="ctaBlock">
@@ -241,17 +263,11 @@
       <p id="ctaText">A focused review with an independent Designated Safeguarding Lead can help you close these gaps,
       evidence your compliance, and prepare with confidence for Ofsted inspection and governor scrutiny.</p>
       <a class="btn" href="https://safeguardassured.com/#contact">Book a consultation</a>
-      <p style="margin:13px 0 0; font-size:13px; color:var(--grey);"><b style="color:var(--navy);">To get the most from your consultation:</b> use “Print / save as PDF” below to save your results, then get in touch through the form and we will arrange for you to share it securely, so we can review your position before we speak. Your answers are never sent automatically, you stay in control of what you share.</p>
+      <p style="margin:13px 0 0; font-size:13px; color:var(--grey);"><b style="color:var(--navy);">To get the most from your consultation:</b> once unlocked, use “Download my report (PDF)” above to save your results, then get in touch through the form and we will arrange for you to share it securely, so we can review your position before we speak. Your answers are never sent automatically, you stay in control of what you share.</p>
       <div class="contact">Safeguarding Assured by BVPSkills &nbsp;|&nbsp; safeguardassured.com</div>
     </div>
 
-    <div class="ml-capture no-print" style="margin-top:22px;background:#fff;border:1px solid #e5ddd0;border-top:4px solid #C9A227;border-radius:12px;padding:20px 24px 22px;">
-      <div id="mlwrap-sae"><div class="ml-embedded" data-form="SCUzfp"></div></div>
-    </div>
-
     <div class="btnbar no-print">
-      <button class="act primary" onclick="downloadPDF()">Download my report (PDF)</button>
-      <button class="act secondary" onclick="window.print()">Print / save as PDF</button>
       <button class="act secondary" onclick="document.getElementById('questions').scrollIntoView({behavior:'smooth'})">Back to questions</button>
     </div>
 
@@ -510,9 +526,16 @@ function downloadPDF(){
   doc.save('Ofsted-KCSIE-Safeguarding-Maturity-Scorecard.pdf');
 }
 
+function unlockResults(){
+  var lz=document.getElementById('lockedZone'); if(lz) lz.classList.remove('locked');
+  var ug=document.getElementById('unlockGate'); if(ug) ug.style.display='none';
+}
+
 function resetAll(){
   document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
   STANDARDS.forEach(s=>{const t=document.getElementById('tag'+s.n); t.className='status-tag rag-none'; t.textContent='Not started';});
+  var lz=document.getElementById('lockedZone'); if(lz) lz.classList.add('locked');
+  var ug=document.getElementById('unlockGate'); if(ug) ug.style.display='';
   document.getElementById('dashboard').classList.add('hidden');
   document.getElementById('questions').scrollIntoView({behavior:'smooth'});
 }
@@ -521,6 +544,7 @@ build();
 </script>
 <script>
 (function(){function b(){var s=document.getElementById('mlwrap-sae');if(!s)return;var btn=s.querySelector('.ml-form-embedSubmit button, button[type=submit]');if(btn){btn.style.setProperty('background-color','#C9A227','important');btn.style.setProperty('color','#0B2545','important');btn.style.setProperty('border','none','important');btn.style.setProperty('border-radius','7px','important');btn.style.setProperty('font-weight','800','important');}s.querySelectorAll('input[type=email],input[type=text]').forEach(function(i){i.style.setProperty('background-color','#F7F4EE','important');i.style.setProperty('border','1px solid #D9D5CC','important');i.style.setProperty('border-radius','7px','important');});s.querySelectorAll('h1,h2,h3,h4').forEach(function(h){h.style.setProperty('color','#00838F','important');h.style.setProperty('font-family','Georgia,serif','important');});}b();var t=document.getElementById('mlwrap-sae');if(t){new MutationObserver(b).observe(t,{childList:true,subtree:true});}var n=0,iv=setInterval(function(){b();if(++n>20)clearInterval(iv);},500);})();
+(function(){var w=document.getElementById('mlwrap-sae');if(!w)return;function chk(){var s=w.querySelector('.ml-form-successBody');if(s&&s.offsetParent!==null){unlockResults();}}new MutationObserver(chk).observe(w,{childList:true,subtree:true,attributes:true});var n=0,iv=setInterval(function(){chk();if(++n>120)clearInterval(iv);},500);})();
 </script>
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "37e57ffcaa9745879cdbbc7690ee8a22"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
