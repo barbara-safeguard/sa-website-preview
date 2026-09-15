@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UAE Safeguarding Readiness Scorecard | Safeguarding Assured</title>
+<style>
+  :root{--navy:#0B2545;--teal:#00838F;--gold:#C9A227;--ink:#22303f;--paper:#ffffff;--mist:#f4f6f8;--line:#dde5ec;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--mist);line-height:1.5;}
+  .wrap{max-width:820px;margin:0 auto;padding:28px 20px 60px;}
+  header h1{font-family:Georgia,'Times New Roman',serif;color:var(--navy);font-size:30px;margin:0 0 4px;}
+  header .sa{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+  header .uae{color:var(--gold);}
+  .rule{height:3px;background:var(--gold);border-radius:2px;margin:14px 0 18px;}
+  .lead{font-size:15.5px;color:#3b4a58;}
+  .lead b{color:var(--navy);}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0;box-shadow:0 10px 24px rgba(11,37,69,.05);}
+  .dim h3{margin:0 0 2px;color:var(--navy);font-size:16.5px;}
+  .dim .map{font-size:12px;color:var(--teal);font-weight:600;margin-bottom:8px;}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  @media(max-width:560px){.opts{grid-template-columns:1fr;}}
+  .opts label{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:13.5px;cursor:pointer;background:#fbfcfd;}
+  .opts label:hover{border-color:var(--teal);}
+  .opts input{accent-color:var(--teal);}
+  .opts input:checked + span{font-weight:600;color:var(--navy);}
+  .go{display:block;width:100%;margin:8px 0 0;background:var(--gold);color:#3a2f06;border:none;border-radius:10px;padding:15px;font-size:16px;font-weight:700;cursor:pointer;}
+  .go:hover{filter:brightness(1.04);}
+  #result{display:none;}
+  .score-band{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+  .dial{font-family:Georgia,serif;font-size:44px;color:var(--navy);font-weight:700;line-height:1;}
+  .level{font-size:20px;font-weight:700;color:var(--teal);}
+  .bar{height:12px;background:var(--line);border-radius:8px;overflow:hidden;margin:12px 0;}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));}
+  .actions li{margin:6px 0;}
+  .muted{color:#5b6b78;font-size:13px;}
+  .cta{background:var(--navy);color:#eef3f8;border-radius:12px;padding:18px 20px;margin-top:16px;}
+  .cta a{color:var(--gold);font-weight:700;text-decoration:none;}
+  .foot{font-size:11.5px;color:#8a97a3;margin-top:18px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg style="height:56px;width:auto;display:block;margin:0 0 8px;" viewBox="0 0 420 452" xmlns="http://www.w3.org/2000/svg" aria-label="Safeguarding Assured UAE shield"><defs><linearGradient id="shb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c4a78"/><stop offset="1" stop-color="#0B2545"/></linearGradient></defs><path d="M210 28 C 300 62, 356 66, 372 66 C 372 210, 356 344, 210 460 C 64 344, 48 210, 48 66 C 64 66, 120 62, 210 28 Z" fill="url(#shb)" stroke="#C9A227" stroke-width="10"/><path d="M112 360 Q 210 384 308 360" fill="none" stroke="#C9A227" stroke-width="4" opacity="0.8"/><path d="M206 362 C 204 322, 202 296, 200 268 C 199 250, 203 236, 210 220" fill="none" stroke="#C9A227" stroke-width="9" stroke-linecap="round"/><path d="M206 344 C 218 330, 232 322, 250 318" fill="none" stroke="#C9A227" stroke-width="6" stroke-linecap="round"/><path d="M204 322 C 190 312, 176 308, 160 308" fill="none" stroke="#C9A227" stroke-width="6" stroke-linecap="round"/><path d="M120 250 C 120 214, 156 196, 196 198 C 214 176, 250 172, 276 186 C 306 182, 328 202, 322 226 C 336 236, 332 258, 308 262 C 262 270, 168 270, 132 264 C 112 260, 110 252, 120 250 Z" fill="#00838F"/><text x="210" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="42" letter-spacing="7" fill="#C9A227" font-weight="700">UAE</text></svg>
+    <div class="sa">Safeguarding Assured <span class="uae">UAE</span> · by BVPSkills</div>
+    <h1>Safeguarding readiness scorecard</h1>
+  </header>
+  <div class="rule"></div>
+  <p class="lead">A free, two-minute check of where your school stands, mapped to the <b>UAE Unified Inspection Framework</b> (KHDA, ADEK and SPEA), <b>Wadeema's Law</b>, and the direction set by the new <b>Child Digital Safety Law</b>. Answer honestly, you will get an instant maturity level and a short list of priority actions. Your answers stay in your browser.</p>
+
+  <form id="qform"></form>
+  <button class="go" id="calc">See my readiness score</button>
+
+  <div id="result">
+    <div class="card">
+      <div class="score-band">
+        <div class="dial" id="pct">0%</div>
+        <div><div class="level" id="lvl">—</div><div class="muted" id="lvlnote"></div></div>
+      </div>
+      <div class="bar"><i id="fill" style="width:0%"></i></div>
+      <h3 style="color:var(--navy);margin:14px 0 4px;">Your priority actions</h3>
+      <ul class="actions" id="actions"></ul>
+    </div>
+    <div class="cta">
+      <b>Where to from here</b>
+      <p style="margin:8px 0 0;">This is a starting picture, not a verdict. If it would help to talk it through, or to map your setting fully against the framework, I am an independent Designated Safeguarding Lead and I am glad to help.</p>
+      <a href="https://safeguardassured.com#contact" style="display:inline-block;margin-top:14px;background:var(--gold);color:#3a2f06;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:9px;">Book a call with Barbara</a>
+      <p style="margin:14px 0 0;font-size:13px;color:#c7d3de;">Barbara Veeramallay-Permaul · Independent Designated Safeguarding Lead · Safeguarding Assured by BVPSkills</p>
+    </div>
+  </div>
+
+  <p class="foot">Draft tool for Barbara's review. Indicative only, based on public guidance, and not a substitute for a full safeguarding review or regulatory inspection. Figures and legal references to be confirmed before this is issued.</p>
+</div>
+
+<script>
+const DIMS=[
+ {t:"Leadership and governance of safeguarding",m:"Unified Inspection Framework · Standard 6",a:"Make safeguarding a standing item for leadership and governance, with named oversight and a clear line of accountability."},
+ {t:"Your Designated Safeguarding Lead",m:"Regulator requirement · trained DSL in post",a:"Ensure a suitably trained DSL is in post at all times, with trained deputies and reliable cover."},
+ {t:"Staff training and the duty to report",m:"Wadeema's Law · all staff",a:"Train every member of staff to recognise and report concerns, and to understand their reporting duty under Wadeema's Law."},
+ {t:"Safer recruitment and vetting",m:"Unified Inspection Framework · Standard 6",a:"Strengthen safer recruitment: identity, references and required checks completed before anyone starts."},
+ {t:"Child protection policy and procedures",m:"Regulators · Wadeema's Law",a:"Review your child protection policy against the regulators, Wadeema's Law and the new digital safety duties, with a dated review cycle."},
+ {t:"Reporting, referral and Child Protection Units",m:"Wadeema's Law · Article 42 reporting duty",a:"Make reporting routes clear and known to all, with confident links to the Child Protection Units and the authorities."},
+ {t:"Care, wellbeing, health and safety of students",m:"Unified Inspection Framework · Standard 5",a:"Evidence how students' welfare is protected day to day, not only in policy."},
+ {t:"Online safety, in step with the new law",m:"Reflecting Federal Decree-Law No. 26 of 2025 (Child Digital Safety)",a:"Strengthen your online-safety practice in line with the direction set by the new Child Digital Safety Law, so your school moves with it."}
+];
+const LEVELS=["Not yet in place","Emerging","Established","Embedded and evidenced"];
+const form=document.getElementById('qform');
+DIMS.forEach((d,i)=>{
+  const c=document.createElement('div'); c.className='card dim';
+  let opts='';
+  LEVELS.forEach((L,j)=>{opts+=`<label><input type="radio" name="d${i}" value="${j+1}"><span>${L}</span></label>`;});
+  c.innerHTML=`<h3>${i+1}. ${d.t}</h3><div class="map">${d.m}</div><div class="opts">${opts}</div>`;
+  form.appendChild(c);
+});
+document.getElementById('calc').addEventListener('click',()=>{
+  let total=0, answered=0; const low=[];
+  DIMS.forEach((d,i)=>{
+    const sel=form.querySelector(`input[name="d${i}"]:checked`);
+    if(sel){const v=+sel.value; total+=v; answered++; if(v<=2) low.push({d,v});}
+  });
+  if(answered<DIMS.length){alert("Please answer all eight, it only takes a moment.");return;}
+  const pct=Math.round((total/(DIMS.length*4))*100);
+  let lvl,note;
+  if(pct<40){lvl="Foundational";note="The building blocks need putting in place. That is normal, and it is exactly where support helps most.";}
+  else if(pct<65){lvl="Developing";note="A solid base, with clear areas to strengthen before an inspection.";}
+  else if(pct<85){lvl="Established";note="Good practice in place. The task now is to evidence it and close the last gaps.";}
+  else{lvl="Exemplar";note="Strong and well evidenced. Worth a light check that nothing has drifted.";}
+  document.getElementById('pct').textContent=pct+"%";
+  document.getElementById('lvl').textContent=lvl;
+  document.getElementById('lvlnote').textContent=note;
+  document.getElementById('fill').style.width=pct+"%";
+  const ul=document.getElementById('actions'); ul.innerHTML="";
+  const list=(low.length?low.sort((a,b)=>a.v-b.v):DIMS.map(d=>({d,v:3}))).slice(0,4);
+  if(low.length===0){const li=document.createElement('li');li.textContent="No priority gaps flagged. Keep your evidence current and your review dates diarised.";ul.appendChild(li);}
+  else list.forEach(x=>{const li=document.createElement('li');li.innerHTML=`<b>${x.d.t}.</b> ${x.d.a}`;ul.appendChild(li);});
+  document.getElementById('result').style.display='block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
