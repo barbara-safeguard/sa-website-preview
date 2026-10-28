@@ -637,6 +637,28 @@ ml('account', '2462707');
   </div>
 </section>
 
+<section id="care">
+  <div class="wrap">
+    <div>
+      <h2>Aligned to the CQC &#8216;Safe&#8217; domain and the Care Act</h2>
+      <p>For care providers. Safeguarding under the CQC&#8217;s report cards, judged met or not met, alongside the Care Act 2014 for adults at risk and, where you care for children, the Ofsted expectations and Working Together to Safeguard Children.</p>
+      <p class="std-hint">Select an area to see what it means, and what good evidence looks like.</p>
+      <p style="margin-top:24px;"><a href="care.html" class="btn btn-gold">Explore safeguarding for care &rarr;</a></p>
+    </div>
+    <div class="std-grid">
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="care-detail" data-title="Leadership, culture and governance" data-mean="Leaders and trustees create a culture where safeguarding is everyone&#8217;s responsibility, concerns are welcomed, and the people in your care are listened to." data-ev="A safeguarding policy reviewed at least annually, a named safeguarding lead and board oversight, staff who know the reporting routes, and safeguarding as a standing governance item."><span class="tick">&#10003;</span> Leadership, culture &amp; governance <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="care-detail" data-title="Safe recruitment and the single central record" data-mean="The right checks happen before anyone starts, and they are recorded in one place that is always inspection-ready." data-ev="A complete single central record, enhanced DBS with barred-list checks where required, identity, right-to-work and reference checks, reconciled against everyone currently working or volunteering."><span class="tick">&#10003;</span> Safer recruitment &amp; single central record <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="care-detail" data-title="Recognising and responding to concerns" data-mean="Staff spot the signs early, record concerns the same day, and concerns are acted on and escalated without delay." data-ev="A clear referral pathway to the local authority, a secure recording system, thresholds staff understand, and a whistleblowing route that is trusted and used."><span class="tick">&#10003;</span> Recognising &amp; responding to concerns <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="care-detail" data-title="Adults at risk and the Care Act" data-mean="Safeguarding is personal to the adult at risk, with their wishes at the centre, and the Care Act duties are understood and met." data-ev="Evidence of making safeguarding personal, mental capacity and consent recorded, links with the local authority safeguarding adults team, and DoLS or LPS handled where relevant."><span class="tick">&#10003;</span> Adults at risk &amp; the Care Act <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="care-detail" data-title="Children at risk, where you work with them" data-mean="Where you care for children or young people, their safeguarding meets the national expectations and the right thresholds are applied." data-ev="Practice aligned to Working Together to Safeguard Children, staff who know how to refer, safe arrangements for supervision and online safety, and Ofsted expectations met for regulated children&#8217;s services."><span class="tick">&#10003;</span> Children at risk, where relevant <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="care-detail" data-title="Allegations, the LADO and notifications" data-mean="Allegations against staff are handled properly, and you work openly with the local authority, the LADO and the regulators." data-ev="An allegations procedure, records of LADO referrals and outcomes where children are involved, and notifiable events reported to the CQC or Ofsted."><span class="tick">&#10003;</span> Allegations, LADO &amp; notifications <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="care-detail" data-title="Training and competence" data-mean="Everyone is trained for their role and inducted before they work with people at risk, and training is kept current." data-ev="A safeguarding induction for all staff, a training log with dates, regular refreshers, and staff who know the service&#8217;s systems and policies."><span class="tick">&#10003;</span> Training &amp; competence <span class="chev">&#9656;</span></button>
+      <button type="button" class="std std-btn" aria-expanded="false" aria-controls="care-detail" data-title="Records, evidence and assurance" data-mean="Good records tell the story clearly, and those who carry the responsibility can see exactly where safeguarding stands." data-ev="Incident logs and chronologies kept up to date, the evidence an inspector expects, regular board or trustee assurance, and lessons from reviews acted upon."><span class="tick">&#10003;</span> Records, evidence &amp; assurance <span class="chev">&#9656;</span></button>
+      <div class="std-detail" id="care-detail" role="region" aria-live="polite"><h3></h3><p class="lead"></p><span class="ev-label">Evidence that shows it is met</span><p class="ev"></p></div>
+    </div>
+  </div>
+</section>
+
 <section id="system">
   <div class="wrap">
     <div class="sys-head">
@@ -993,7 +1015,7 @@ ml('account', '2462707');
 </script>
 <script>
 (function(){
-  ['#standards .std-grid','#ofsted .std-grid'].forEach(function(sel){
+  ['#standards .std-grid','#ofsted .std-grid','#care .std-grid'].forEach(function(sel){
     var grid=document.querySelector(sel);
     if(!grid) return;
     var detail=grid.querySelector('.std-detail');
