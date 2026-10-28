@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Care Safeguarding Readiness — Safeguarding Assured by BVPSkills</title>
+<link rel="canonical" href="https://safeguardassured.com/readiness-care.html">
+<meta name="description" content="A free, confidential safeguarding readiness self-check for care providers, across adults at risk and children at risk. Nothing is saved or sent.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safeguarding Assured by BVPSkills">
+<meta property="og:title" content="Care Safeguarding Readiness | Safeguarding Assured by BVPSkills">
+<meta property="og:description" content="A free, confidential safeguarding readiness self-check for care providers, across adults at risk and children at risk. Nothing is saved or sent.">
+<meta property="og:url" content="https://safeguardassured.com/readiness-care.html">
+<meta property="og:image" content="https://safeguardassured.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Care Safeguarding Readiness | Safeguarding Assured by BVPSkills">
+<meta name="twitter:description" content="A free, confidential safeguarding readiness self-check for care providers, across adults at risk and children at risk. Nothing is saved or sent.">
+<meta name="twitter:image" content="https://safeguardassured.com/assets/og-image.png">
+
+<style>
+  :root{
+    --navy:#0B2545; --teal:#00838F; --gold:#C9A227;
+    --red:#C0392B; --amber:#E69500; --green:#2E7D32;
+    --grey:#6C757D; --cream:#F7F4EE; --charcoal:#212121;
+    --heading:Georgia,'Times New Roman',serif;
+    --body:Calibri,'Segoe UI',Candara,Optima,'Trebuchet MS',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--cream); color:var(--charcoal);
+    font-family:var(--body); font-size:16px; line-height:1.5;
+  }
+  .wrap{max-width:940px; margin:0 auto; padding:0 20px 60px;}
+
+  /* Brand header */
+  header.brand{background:var(--navy); color:#fff; padding:22px 20px 0;}
+  .brand-inner{max-width:940px; margin:0 auto; display:flex; align-items:center; gap:14px;}
+  .shield{width:40px; height:46px; flex:none;}
+  .brand-text .name{font-family:var(--heading); font-weight:bold; letter-spacing:1.5px; font-size:20px; color:#fff;}
+  .brand-text .by{font-style:italic; font-size:14px; color:#d9e2ef;}
+  .gold-rule{height:4px; background:var(--gold); margin-top:18px;}
+
+  .doc-meta{max-width:940px; margin:0 auto; padding:10px 20px 0; font-family:var(--body);
+    font-size:12.5px; color:var(--grey); display:flex; flex-wrap:wrap; gap:6px 18px;}
+  .chip{display:inline-block; background:var(--teal); color:#fff; font-size:12px;
+    padding:2px 10px; border-radius:4px; letter-spacing:.3px;}
+  .chip.draft{background:var(--gold); color:var(--navy);}
+
+  h1{font-family:var(--heading); color:var(--navy); font-size:26px; margin:26px 0 6px;}
+  .lead{color:var(--teal); font-style:italic; font-size:16px; margin:0 0 8px;}
+  .intro{font-size:15px; max-width:760px;}
+
+  h2.std{font-family:var(--heading); color:var(--navy); font-size:18px; margin:0;}
+  .std-num{display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px;
+    border-radius:50%; background:var(--navy); color:#fff; font-family:var(--heading);
+    font-size:15px; margin-right:12px; flex:none;}
+
+  .card{background:#fff; border:1px solid #e5ddd0; border-radius:10px; margin:16px 0; overflow:hidden;}
+  .card-head{display:flex; align-items:center; padding:14px 18px; border-bottom:1px solid #efe8db;
+    background:#fffdf8;}
+  .card-head .status-tag{margin-left:auto;}
+  .status-tag{font-size:12px; font-weight:bold; padding:4px 12px; border-radius:20px; white-space:nowrap;}
+  .card-body{padding:6px 18px 14px;}
+
+  .q{padding:12px 0; border-bottom:1px dashed #eee6d7;}
+  .q:last-child{border-bottom:none;}
+  .q p{margin:0 0 9px; font-size:15px; color:var(--charcoal);}
+  .opts{display:flex; flex-wrap:wrap; gap:8px;}
+  .opts label{cursor:pointer;}
+  .opts input{position:absolute; opacity:0; pointer-events:none;}
+  .opts .pill{display:inline-block; padding:6px 14px; border-radius:20px; font-size:13.5px;
+    border:1.5px solid #d8cfbf; color:var(--grey); background:#fff; transition:all .12s; user-select:none;}
+  .opts input:checked + .pill.yes{background:var(--green); border-color:var(--green); color:#fff;}
+  .opts input:checked + .pill.partly{background:var(--amber); border-color:var(--amber); color:var(--navy);}
+  .opts input:checked + .pill.no{background:var(--red); border-color:var(--red); color:#fff;}
+  .opts input:checked + .pill.na{background:var(--grey); border-color:var(--grey); color:#fff;}
+  .opts label:hover .pill{border-color:var(--teal);}
+  .opts input:focus-visible + .pill{outline:2px solid var(--teal); outline-offset:2px;}
+
+  /* RAG tag colours */
+  .rag-green{background:var(--green); color:#fff;}
+  .rag-amber{background:var(--amber); color:var(--navy);}
+  .rag-red{background:var(--red); color:#fff;}
+  .rag-na{background:var(--grey); color:#fff;}
+  .rag-none{background:#e5ddd0; color:var(--grey);}
+
+  /* Dashboard */
+  #dashboard{margin-top:34px; scroll-margin-top:20px;}
+  .dash-top{display:flex; flex-wrap:wrap; gap:20px; align-items:center;
+    background:var(--navy); color:#fff; border-radius:12px; padding:22px 26px;}
+  .score-ring{--pct:0; width:120px; height:120px; border-radius:50%; flex:none;
+    background:conic-gradient(var(--gold) calc(var(--pct)*1%), rgba(255,255,255,.15) 0);
+    display:flex; align-items:center; justify-content:center;}
+  .score-ring .inner{width:92px; height:92px; border-radius:50%; background:var(--navy);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;}
+  .score-ring .pct{font-family:var(--heading); font-size:30px; font-weight:bold;}
+  .score-ring .lbl{font-size:11px; letter-spacing:.5px; color:#d9e2ef; text-transform:uppercase;}
+  .dash-summary h2{font-family:var(--heading); margin:0 0 6px; font-size:20px; color:#fff;}
+  .dash-summary p{margin:0; font-size:14px; color:#d9e2ef; max-width:520px;}
+
+  table.results{width:100%; border-collapse:collapse; margin-top:18px; background:#fff;
+    border:1px solid #e5ddd0; border-radius:10px; overflow:hidden;}
+  table.results th{background:var(--navy); color:#fff; font-family:var(--body); font-size:13px;
+    text-align:left; padding:10px 12px; font-weight:bold;}
+  table.results td{padding:10px 12px; font-size:14px; border-top:1px solid #efe8db; vertical-align:top;}
+  table.results td.cstat{text-align:center; white-space:nowrap;}
+
+  .actions-block{margin-top:22px;}
+  .actions-block h3{font-family:var(--heading); color:var(--teal); font-size:16px; margin:0 0 8px;}
+  .action-item{background:#fff; border-left:5px solid var(--grey); border-radius:0 8px 8px 0;
+    padding:10px 14px; margin:8px 0; font-size:14px;}
+  .action-item.red{border-left-color:var(--red);}
+  .action-item.amber{border-left-color:var(--amber);}
+  .action-item b{color:var(--navy);}
+
+  .cta{margin-top:26px; background:#fff; border:1px solid var(--gold); border-radius:12px; padding:22px 24px;}
+  .cta h3{font-family:var(--heading); color:var(--navy); font-size:19px; margin:0 0 8px;}
+  .cta p{margin:0 0 14px; font-size:14.5px;}
+  .cta a.btn{display:inline-block; background:var(--teal); color:#fff; text-decoration:none;
+    font-weight:bold; padding:11px 22px; border-radius:8px; font-size:14.5px;}
+  .cta .contact{margin-top:12px; font-size:13.5px; color:var(--grey);}
+
+  .btnbar{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px;}
+  button.act{font-family:var(--body); font-size:15px; font-weight:bold; cursor:pointer;
+    border:none; border-radius:8px; padding:13px 24px;}
+  button.primary{background:var(--navy); color:#fff;}
+  button.secondary{background:#fff; color:var(--navy); border:1.5px solid var(--navy);}
+  button.act:hover{opacity:.92;}
+
+  .note{font-size:12.5px; color:var(--grey); margin-top:14px;}
+  .confid{margin-top:34px; padding:16px 18px; background:#fff; border:1px solid #e5ddd0;
+    border-radius:10px; font-size:12.5px; color:var(--grey); line-height:1.5;}
+  .confid b{color:var(--navy);}
+  footer.foot{border-top:2px solid var(--gold); margin-top:30px; padding-top:12px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px;
+    font-size:11.5px; color:var(--grey);}
+  footer.foot .cc{font-weight:bold; letter-spacing:.5px;}
+
+  .maturity-badge{display:none; font-family:var(--body); font-size:13px; font-weight:bold;
+    letter-spacing:.3px; padding:4px 14px; border-radius:20px; margin-bottom:8px;}
+  .maturity-badge.mat-green{background:var(--green); color:#fff;}
+  .maturity-badge.mat-teal{background:var(--teal); color:#fff;}
+  .maturity-badge.mat-amber{background:var(--amber); color:var(--navy);}
+  .maturity-badge.mat-red{background:var(--red); color:#fff;}
+
+  .unlock-gate{margin:18px 0; background:#fff; border:1px solid #EAD79A; border-left:5px solid var(--gold); border-radius:0 10px 10px 0; padding:18px 22px;}
+  .unlock-gate .ug-h{font-family:var(--heading); color:var(--navy); font-size:18px; font-weight:bold; margin:0 0 6px;}
+  .unlock-gate .lockico{color:var(--gold); margin-right:6px;}
+  .unlock-gate p{margin:0 0 12px; font-size:14.5px;}
+  .unlock-gate .already{margin-top:12px; font-size:13px; color:var(--grey);}
+  .unlock-gate .already a{color:var(--teal); font-weight:700; cursor:pointer; text-decoration:underline;}
+  .locked{filter:blur(7px); pointer-events:none; user-select:none; max-height:220px; overflow:hidden; -webkit-mask-image:linear-gradient(#000 55%, transparent); mask-image:linear-gradient(#000 55%, transparent);}
+
+  .hidden{display:none !important;}
+  .print-only{display:none;}
+
+  @media print{
+    body{background:#fff;}
+    header.brand{background:#fff !important; color:var(--navy); padding-top:0;}
+    .brand-text .name{color:var(--navy);}
+    .brand-text .by{color:var(--charcoal);}
+    .no-print{display:none !important;}
+    .print-only{display:block;}
+    .card{page-break-inside:avoid;}
+    .dash-top{background:#fff !important; color:var(--navy); border:1.5px solid var(--navy);}
+    .dash-top .score-ring .inner{background:#fff;}
+    .dash-top .pct{color:var(--navy);}
+    .dash-summary h2, .dash-summary p{color:var(--navy) !important;}
+    table.results th{background:var(--navy) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .status-tag,.rag-green,.rag-amber,.rag-red,.rag-na{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+</style>
+<script>
+(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');ml('account','2462707');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<header class="brand">
+  <a class="brand-inner" href="https://safeguardassured.com" style="text-decoration:none;">
+    <svg class="shield" viewBox="0 0 40 46" aria-hidden="true">
+      <path d="M20 1 L38 8 V22 C38 34 30 41 20 45 C10 41 2 34 2 22 V8 Z" fill="#0B2545" stroke="#C9A227" stroke-width="2"/>
+      <path d="M12 23 l6 6 l11 -13" fill="none" stroke="#C9A227" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="brand-text">
+      <div class="name">SAFEGUARDING ASSURED</div>
+      <div class="by">by BVPSkills</div>
+    </div>
+  </a>
+  <div class="gold-rule"></div>
+</header>
+
+<div class="doc-meta">
+  <span><span class="chip">Free readiness check</span></span>
+  <span>CQC &#8216;Safe&#8217; domain, the Care Act 2014, and children&#8217;s safeguarding where relevant</span>
+  <span>Safeguarding Assured by BVPSkills &nbsp;&middot;&nbsp; safeguardassured.com</span>
+</div>
+
+<div class="wrap">
+
+  <h1>Safeguarding Readiness for Care Providers</h1>
+  <p class="lead">A confidential readiness check for care settings, across adults at risk and children at risk</p>
+  <p class="intro">Work through the evidence questions under each area. Answer honestly, based on what is currently in place and evidenced, not what is planned. As you go, each area is rated Red, Amber or Green, and an overall readiness score builds at the foot of the page. Safeguarding sits at the heart of the CQC &#8216;Safe&#8217; question, and of the Ofsted social-care expectations for children&#8217;s services, so any amber or red area is worth closing before an inspection. Nothing you enter leaves your browser: this assessment is not saved, sent or recorded anywhere. When you are finished you can print or save a branded summary to keep.</p>
+  <div style="margin:24px 0;padding:18px 20px;background:#0B2545;border-radius:10px;text-align:center;">
+    <p style="color:#ffffff;font-size:15.5px;margin:0 0 12px;">Prefer to talk it through? A short, confidential conversation can turn this readiness picture into a clear, prioritised plan.</p>
+    <a href="https://calendly.com/bvpermaul/30min" target="_blank" rel="noopener" style="display:inline-block;background:#C9A227;color:#0B2545;font-weight:800;padding:12px 22px;border-radius:7px;text-decoration:none;">Book a confidential conversation &rarr;</a>
+  </div>
+
+  <div id="questions"></div>
+
+  <div class="btnbar no-print">
+    <button class="act primary" onclick="calculate()">See my results</button>
+    <button class="act secondary" onclick="resetAll()">Clear answers</button>
+  </div>
+  <p class="note no-print">Tip: you can leave a question as N/A where an area genuinely does not apply to your setting.
+  N/A answers are excluded from scoring.</p>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="hidden">
+    <div class="dash-top">
+      <div class="score-ring" id="ring"><div class="inner">
+        <span class="pct" id="scorePct">0%</span>
+        <span class="lbl">Readiness</span>
+      </div></div>
+      <div class="dash-summary">
+        <span class="maturity-badge" id="matLevel"></span>
+        <h2 id="bandTitle">Your safeguarding readiness</h2>
+        <p id="bandText"></p>
+        <p id="benchLine" style="margin:8px 0 0; font-size:13px; color:#cfe0ea; font-style:italic;"></p>
+        <p class="print-only" id="printDate" style="margin-top:8px;"></p>
+      </div>
+    </div>
+
+    <div class="unlock-gate no-print" id="unlockGate">
+      <div class="ug-h"><span class="lockico">&#128274;</span>Unlock your full results</div>
+      <p>You can see your headline score and maturity level above. Enter your email to unlock your area-by-area breakdown, your priority actions, and a branded PDF report to keep. Only your email is sent, never your answers.</p>
+      <div id="mlwrap-sae"><div class="ml-embedded" data-form="U3aIf1"></div></div>
+      <div class="already">Already subscribed? <a onclick="unlockResults()">Unlock your results</a>.</div>
+    </div>
+
+    <div id="lockedZone" class="locked">
+      <table class="results">
+        <thead><tr><th style="width:44px;">#</th><th>Safeguarding area</th>
+        <th style="width:120px;">Status</th><th style="width:80px;text-align:center;">Score</th></tr></thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+
+      <div class="actions-block" id="actionsBlock">
+        <h3>Priority actions</h3>
+        <div id="actionsList"></div>
+      </div>
+
+      <div class="btnbar no-print">
+        <button class="act primary" onclick="downloadPDF()">Download my report (PDF)</button>
+        <button class="act secondary" onclick="window.print()">Print / save as PDF</button>
+      </div>
+    </div>
+
+    <div class="cta" id="ctaBlock">
+      <h3>Turn these gaps into a plan</h3>
+      <p id="ctaText">A focused review with an independent safeguarding consultant and lead can help you close these gaps,
+      evidence your compliance, and prepare with confidence for inspection and board or trustee scrutiny.</p>
+      <a class="btn" href="https://safeguardassured.com/#contact">Book a consultation</a>
+      <p style="margin:13px 0 0; font-size:13px; color:var(--grey);"><b style="color:var(--navy);">To get the most from your consultation:</b> once unlocked, use “Download my report (PDF)” above to save your results, then get in touch through the form and we will arrange for you to share it securely, so we can review your position before we speak. Your answers are never sent automatically, you stay in control of what you share.</p>
+      <div class="contact">Safeguarding Assured by BVPSkills &nbsp;|&nbsp; safeguardassured.com</div>
+    </div>
+
+    <div class="btnbar no-print">
+      <button class="act secondary" onclick="document.getElementById('questions').scrollIntoView({behavior:'smooth'})">Back to questions</button>
+    </div>
+
+    <div class="confid">
+      <b>Your privacy.</b> Your answers stay in your browser: this self-assessment is not saved, sent or recorded
+      anywhere, and any summary you print is yours alone. If you choose to enter your email above to receive your next
+      steps, only your email address is sent to me, never your answers. This tool provides an indicative self-assessment
+      only and does not constitute a formal safeguarding audit. &copy; 2026 Safeguarding Assured by BVPSkills. All rights reserved.
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>Safeguarding Assured by BVPSkills</span>
+    <span class="cc">safeguardassured.com</span>
+    <span>Free care safeguarding readiness check &nbsp;|&nbsp; SA-AST-006 v1.0</span>
+  </footer>
+</div>
+
+<script>
+const STANDARDS = [
+  { n:1, title:"Leadership, safeguarding culture and governance",
+    q:[
+      "There is a current safeguarding policy for adults at risk, and for children where the service works with them, reviewed at least annually.",
+      "A named safeguarding lead is in post, with clear board or trustee oversight of safeguarding.",
+      "Leaders foster an open, positive safeguarding culture where concerns are raised and acted upon.",
+      "Safeguarding is a standing item at leadership and governance meetings."
+    ]},
+  { n:2, title:"Safe recruitment and the single central record",
+    q:[
+      "A single central record of recruitment and vetting checks is maintained and up to date.",
+      "Enhanced DBS checks, with a barred list check where relevant, are completed before or on appointment.",
+      "References, right to work and the required pre-employment checks are obtained for every appointment.",
+      "The record is reconciled against everyone currently working or volunteering in the service."
+    ]},
+  { n:3, title:"Recognising and responding to concerns",
+    q:[
+      "All staff know how to recognise, record and escalate a safeguarding concern, and to whom.",
+      "Thresholds for referral to the local authority are understood and applied.",
+      "Concerns and referrals are recorded promptly and stored securely.",
+      "A whistleblowing route is in place and staff trust that it will be acted upon."
+    ]},
+  { n:4, title:"Adults at risk and the Care Act",
+    q:[
+      "Practice reflects making safeguarding personal, with the person's wishes at the centre.",
+      "Mental capacity and consent are considered and recorded appropriately.",
+      "Staff understand the duties owed to adults at risk under the Care Act 2014.",
+      "There are clear links with the local authority safeguarding adults team, and with DoLS or LPS where relevant."
+    ]},
+  { n:5, title:"Children at risk, where the service works with them",
+    q:[
+      "Where services involve children or young people, practice aligns with Working Together to Safeguard Children.",
+      "Staff know how to recognise and respond to a concern about a child, and when to refer to children's social care.",
+      "Safer arrangements for children, including supervision, contact and online safety, are in place where relevant.",
+      "Children's services meet the relevant Ofsted social-care expectations (mark N/A if the service does not work with children)."
+    ]},
+  { n:6, title:"Managing allegations and working with others",
+    q:[
+      "There is a procedure for managing allegations against staff and volunteers.",
+      "Referrals are made to the local authority, the LADO where children are involved, and the police where required.",
+      "Notifiable events are reported to the CQC, or to Ofsted for regulated children's services.",
+      "Records of allegations and concerns are kept securely and confidentially."
+    ]},
+  { n:7, title:"Training and competence",
+    q:[
+      "All staff receive a safeguarding induction appropriate to their role.",
+      "Staff receive regular safeguarding updates and refreshers.",
+      "Training records are maintained showing completion and renewal dates.",
+      "Staff know the service's safeguarding systems and where to find the key policies."
+    ]},
+  { n:8, title:"Records, evidence and assurance",
+    q:[
+      "Clear records, incident logs and chronologies are kept and up to date.",
+      "The service can produce the evidence an inspector would expect to see.",
+      "The board or trustees receive regular, meaningful safeguarding assurance.",
+      "Lessons from incidents, complaints and reviews are acted upon and embedded."
+    ]}
+];
+
+const VAL = { yes:100, partly:50, no:0 };
+const OPTS = [
+  {v:"yes",   c:"yes",    t:"Yes, in place"},
+  {v:"partly",c:"partly", t:"Partly"},
+  {v:"no",    c:"no",     t:"Not yet"},
+  {v:"na",    c:"na",     t:"N/A"}
+];
+
+function ragClass(pct){ return pct>=80 ? "green" : pct>=40 ? "amber" : "red"; }
+function ragLabel(pct){ return pct>=80 ? "GREEN" : pct>=40 ? "AMBER" : "RED"; }
+function ragMeaning(pct){ return pct>=80 ? "On track" : pct>=40 ? "Partially met" : "Significant gap"; }
+
+function build(){
+  const host = document.getElementById('questions');
+  STANDARDS.forEach(s=>{
+    const card = document.createElement('div');
+    card.className='card'; card.id='card'+s.n;
+    let qs='';
+    s.q.forEach((text,i)=>{
+      const name='s'+s.n+'q'+i;
+      let opts='';
+      OPTS.forEach(o=>{
+        opts+=`<label><input type="radio" name="${name}" value="${o.v}" onchange="liveRate(${s.n})"><span class="pill ${o.c}">${o.t}</span></label>`;
+      });
+      qs+=`<div class="q"><p>${text}</p><div class="opts">${opts}</div></div>`;
+    });
+    card.innerHTML=`<div class="card-head">
+        <span class="std-num">${s.n}</span>
+        <h2 class="std">${s.title}</h2>
+        <span class="status-tag rag-none" id="tag${s.n}">Not started</span>
+      </div><div class="card-body">${qs}</div>`;
+    host.appendChild(card);
+  });
+}
+
+function standardResult(s){
+  let sum=0, count=0, answered=0, total=s.q.length;
+  s.q.forEach((_,i)=>{
+    const sel=document.querySelector(`input[name="s${s.n}q${i}"]:checked`);
+    if(sel){ answered++; if(sel.value!=='na'){ sum+=VAL[sel.value]; count++; } }
+  });
+  const pct = count? Math.round(sum/count) : null;
+  return {pct, answered, total, allNA: answered>0 && count===0};
+}
+
+function liveRate(n){
+  const s=STANDARDS.find(x=>x.n===n);
+  const r=standardResult(s);
+  const tag=document.getElementById('tag'+n);
+  if(r.answered===0){ tag.className='status-tag rag-none'; tag.textContent='Not started'; return; }
+  if(r.allNA){ tag.className='status-tag rag-na'; tag.textContent='N/A'; return; }
+  const cls=ragClass(r.pct);
+  tag.className='status-tag rag-'+cls;
+  const partial = r.answered<r.total ? ' ('+r.answered+'/'+r.total+')' : '';
+  tag.textContent=ragLabel(r.pct)+partial;
+}
+
+function calculate(){
+  let grand=0, gc=0;
+  const body=document.getElementById('resultsBody');
+  body.innerHTML='';
+  const reds=[], ambers=[];
+  STANDARDS.forEach(s=>{
+    const r=standardResult(s);
+    let cls,label,scoreTxt;
+    if(r.answered===0){ cls='none'; label='Not started'; scoreTxt='—'; }
+    else if(r.allNA){ cls='na'; label='N/A'; scoreTxt='—'; }
+    else{ cls=ragClass(r.pct); label=ragLabel(r.pct); scoreTxt=r.pct+'%'; grand+=r.pct; gc++;
+      if(cls==='red') reds.push(s); else if(cls==='amber') ambers.push(s); }
+    body.innerHTML+=`<tr><td>${s.n}</td><td>${s.title}</td>
+      <td class="cstat"><span class="status-tag rag-${cls==='none'?'none':cls}">${label}</span></td>
+      <td style="text-align:center;">${scoreTxt}</td></tr>`;
+  });
+
+  const overall = gc? Math.round(grand/gc) : 0;
+  const ring=document.getElementById('ring');
+  ring.style.setProperty('--pct', overall);
+  document.getElementById('scorePct').textContent=overall+'%';
+
+  const band = overall>=80?'green':overall>=40?'amber':'red';
+  const titles={green:'Strong safeguarding readiness',amber:'Developing safeguarding readiness',red:'Early-stage safeguarding readiness'};
+  const texts={
+    green:'Your arrangements are broadly in place and evidenced across the safeguarding areas. Focus now on sustaining practice, closing any remaining amber areas, and being ready to show your evidence clearly at inspection.',
+    red:'Several areas show significant gaps. These are the areas an inspector, and more importantly the people in your care, would feel first, so prioritising the red areas below will make the biggest difference.',
+    amber:'You have foundations in place, with a number of areas partially met. The priority actions below show where to concentrate before inspection.'
+  };
+  document.getElementById('bandTitle').textContent = gc? titles[band] : 'Answer some questions to see your readiness';
+  document.getElementById('bandText').textContent = gc? texts[band] : 'Choose an answer under at least one standard, then select “See my results” again.';
+
+  const d=new Date();
+  document.getElementById('printDate').textContent='Assessment date: '+
+    d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+  const list=document.getElementById('actionsList');
+  const actBlock=document.getElementById('actionsBlock');
+  list.innerHTML='';
+  if(reds.length===0 && ambers.length===0){
+    actBlock.classList.toggle('hidden', gc===0);
+    if(gc>0) list.innerHTML='<div class="action-item"><b>No red or amber gaps identified.</b> Maintain your evidence and review on your set cycle.</div>';
+  } else {
+    actBlock.classList.remove('hidden');
+    reds.forEach(s=>list.innerHTML+=`<div class="action-item red"><b>Area ${s.n} — Red.</b> ${s.title}. Treat as a priority: put core arrangements and evidence in place.</div>`);
+    ambers.forEach(s=>list.innerHTML+=`<div class="action-item amber"><b>Area ${s.n} — Amber.</b> ${s.title}. Partially met: strengthen and complete the outstanding elements.</div>`);
+  }
+
+  const cta=document.getElementById('ctaBlock');
+  const ctaText=document.getElementById('ctaText');
+  if(gc>0 && band==='green' && reds.length===0 && ambers.length===0){
+    ctaText.textContent='Your self-assessment looks strong. An independent review can validate your evidence and give boards and leaders added assurance ahead of inspection.';
+  } else {
+    ctaText.textContent='A focused review with an independent safeguarding consultant and lead can help you close these gaps, evidence your compliance, and prepare with confidence for inspection and board or trustee scrutiny.';
+  }
+
+  const matEl=document.getElementById('matLevel');
+  const benchEl=document.getElementById('benchLine');
+  if(gc>0){
+    const ml=maturityLevel(overall);
+    matEl.className='maturity-badge '+ml.cls; matEl.textContent='Maturity level: '+ml.name;
+    matEl.style.display='inline-block';
+    benchEl.textContent='For context, most providers find their first honest self-check lands in amber, with the single central record and evidence of training the most common gaps to close.';
+  } else {
+    matEl.style.display='none'; benchEl.textContent='';
+  }
+
+  document.getElementById('dashboard').classList.remove('hidden');
+  document.getElementById('dashboard').scrollIntoView({behavior:'smooth'});
+}
+
+function maturityLevel(pct){
+  if(pct>=85) return {key:'exemplar',    name:'Exemplar',     cls:'mat-green'};
+  if(pct>=65) return {key:'established',  name:'Established',   cls:'mat-teal'};
+  if(pct>=40) return {key:'developing',  name:'Developing',    cls:'mat-amber'};
+  return       {key:'foundational', name:'Foundational',  cls:'mat-red'};
+}
+
+function downloadPDF(){
+  const J = window.jspdf && window.jspdf.jsPDF;
+  if(!J){ alert('The report tool is still loading, please try again in a moment.'); return; }
+  const doc = new J({unit:'pt', format:'a4'});
+  const W = doc.internal.pageSize.getWidth();
+  const navy=[11,37,69], gold=[201,162,39], teal=[0,131,143], green=[46,125,50], amber=[230,149,0], red=[192,57,43], grey=[108,117,125];
+  doc.setFillColor(...navy); doc.rect(0,0,W,72,'F');
+  doc.setTextColor(255); doc.setFont('times','bold'); doc.setFontSize(18); doc.text('SAFEGUARDING ASSURED',40,40);
+  doc.setFont('times','italic'); doc.setFontSize(11); doc.text('by BVPSkills',40,56);
+  doc.setFillColor(...gold); doc.rect(0,72,W,4,'F');
+  let y=104;
+  doc.setTextColor(...navy); doc.setFont('times','bold'); doc.setFontSize(16);
+  doc.text('Care Safeguarding Readiness Scorecard',40,y); y+=22;
+  const d=new Date();
+  doc.setFont('helvetica','normal'); doc.setFontSize(10); doc.setTextColor(...grey);
+  doc.text('Assessment date: '+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}),40,y); y+=26;
+  let grand=0, gc=0; const rows=[];
+  STANDARDS.forEach(s=>{
+    const r=standardResult(s); let label,scoreTxt,col;
+    if(r.answered===0){ label='Not started'; scoreTxt='-'; col=grey; }
+    else if(r.allNA){ label='N/A'; scoreTxt='-'; col=grey; }
+    else{ const cls=ragClass(r.pct); label=ragLabel(r.pct); scoreTxt=r.pct+'%';
+      col=cls==='green'?green:cls==='amber'?amber:red; grand+=r.pct; gc++; }
+    rows.push({n:s.n,title:s.title,label,scoreTxt,col});
+  });
+  const overall=gc?Math.round(grand/gc):0; const ml=maturityLevel(overall);
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(...navy);
+  doc.text('Overall readiness: '+overall+'%     Maturity level: '+ml.name,40,y); y+=22;
+  doc.setDrawColor(...gold); doc.setLineWidth(1.2); doc.line(40,y,W-40,y); y+=16;
+  doc.setFontSize(9.5);
+  rows.forEach(r=>{
+    if(y>770){ doc.addPage(); y=54; }
+    doc.setTextColor(...navy); doc.setFont('helvetica','bold'); doc.text(String(r.n),40,y);
+    doc.setFont('helvetica','normal'); const title=doc.splitTextToSize(r.title,360); doc.text(title,58,y);
+    doc.setTextColor(...r.col); doc.setFont('helvetica','bold'); doc.text(r.label+'   '+r.scoreTxt,452,y);
+    y += Math.max(title.length*11,12)+8;
+    doc.setDrawColor(230); doc.setLineWidth(0.5); doc.line(40,y-5,W-40,y-5);
+  });
+  y+=12; if(y>760){ doc.addPage(); y=54; }
+  doc.setTextColor(...grey); doc.setFont('helvetica','italic'); doc.setFontSize(8.5);
+  const note=doc.splitTextToSize('This is an indicative self-assessment, not a formal safeguarding audit. Your answers stay in your browser and are not sent. Prepared with Safeguarding Assured by BVPSkills, safeguardassured.com. (c) 2026 Safeguarding Assured by BVPSkills.',W-80);
+  doc.text(note,40,y);
+  doc.save('Care-Safeguarding-Readiness-Scorecard.pdf');
+}
+
+function unlockResults(){
+  var lz=document.getElementById('lockedZone'); if(lz) lz.classList.remove('locked');
+  var ug=document.getElementById('unlockGate'); if(ug) ug.style.display='none';
+}
+
+function resetAll(){
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+  STANDARDS.forEach(s=>{const t=document.getElementById('tag'+s.n); t.className='status-tag rag-none'; t.textContent='Not started';});
+  var lz=document.getElementById('lockedZone'); if(lz) lz.classList.add('locked');
+  var ug=document.getElementById('unlockGate'); if(ug) ug.style.display='';
+  document.getElementById('dashboard').classList.add('hidden');
+  document.getElementById('questions').scrollIntoView({behavior:'smooth'});
+}
+
+build();
+</script>
+<script>
+(function(){function b(){var s=document.getElementById('mlwrap-sae');if(!s)return;var btn=s.querySelector('.ml-form-embedSubmit button, button[type=submit]');if(btn){btn.style.setProperty('background-color','#C9A227','important');btn.style.setProperty('color','#0B2545','important');btn.style.setProperty('border','none','important');btn.style.setProperty('border-radius','7px','important');btn.style.setProperty('font-weight','800','important');}s.querySelectorAll('input[type=email],input[type=text]').forEach(function(i){i.style.setProperty('background-color','#F7F4EE','important');i.style.setProperty('border','1px solid #D9D5CC','important');i.style.setProperty('border-radius','7px','important');});s.querySelectorAll('h1,h2,h3,h4').forEach(function(h){h.style.setProperty('color','#00838F','important');h.style.setProperty('font-family','Georgia,serif','important');});}b();var t=document.getElementById('mlwrap-sae');if(t){new MutationObserver(b).observe(t,{childList:true,subtree:true});}var n=0,iv=setInterval(function(){b();if(++n>20)clearInterval(iv);},500);})();
+(function(){var w=document.getElementById('mlwrap-sae');if(!w)return;function chk(){var s=w.querySelector('.ml-form-successBody');if(s&&s.offsetParent!==null){unlockResults();}}new MutationObserver(chk).observe(w,{childList:true,subtree:true,attributes:true});var n=0,iv=setInterval(function(){chk();if(++n>120)clearInterval(iv);},500);})();
+</script>
+<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "37e57ffcaa9745879cdbbc7690ee8a22"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
