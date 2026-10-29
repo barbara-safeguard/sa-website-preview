@@ -245,6 +245,11 @@
   #ofsted .std{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.20);}
   #ofsted .std.std-btn:hover{background:rgba(255,255,255,.16);}
   #ofsted .std.std-btn[aria-expanded="true"]{background:rgba(255,255,255,.18);border-color:var(--gold);}
+  /* ---------- Care band ---------- */
+  #care{background:var(--teal);color:#fff;border-top:3px solid var(--gold);}
+  #care .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;}
+  #care h2{color:#fff;font-size:30px;margin-bottom:16px;}
+  #care p{color:#e1f4f5;font-size:17px;}
 
   /* ---------- System marquee ---------- */
   #system{background:var(--navy);border-top:3px solid var(--gold);padding:46px 0;overflow:hidden;}
@@ -401,7 +406,7 @@
 
   /* ---------- Responsive ---------- */
   @media(max-width:1024px){
-    .about-grid,.about-me,#standards .wrap,#ofsted .wrap,.contact-grid{grid-template-columns:1fr;}
+    .about-grid,.about-me,#standards .wrap,#ofsted .wrap,#care .wrap,.contact-grid{grid-template-columns:1fr;}
     .cards,.sectors,.std-grid,.story-list,#testimonials .quotes,.news-grid{grid-template-columns:1fr;}
     .stats{grid-template-columns:repeat(2,1fr);}
     .about-photo{max-width:340px;}
